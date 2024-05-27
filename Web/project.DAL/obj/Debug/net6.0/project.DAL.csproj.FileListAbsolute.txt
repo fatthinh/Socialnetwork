@@ -1,0 +1,17 @@
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\bin\Debug\net6.0\project.DAL.deps.json
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\bin\Debug\net6.0\project.DAL.runtimeconfig.json
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\bin\Debug\net6.0\project.DAL.dll
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\bin\Debug\net6.0\project.DAL.pdb
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\bin\Debug\net6.0\project.common.dll
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\bin\Debug\net6.0\project.common.pdb
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\obj\Debug\net6.0\project.DAL.csproj.AssemblyReference.cache
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\obj\Debug\net6.0\project.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\obj\Debug\net6.0\project.DAL.AssemblyInfoInputs.cache
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\obj\Debug\net6.0\project.DAL.AssemblyInfo.cs
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\obj\Debug\net6.0\project.DAL.csproj.CoreCompileInputs.cache
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\obj\Debug\net6.0\project..C55A93F6.Up2Date
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\obj\Debug\net6.0\project.DAL.dll
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\obj\Debug\net6.0\refint\project.DAL.dll
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\obj\Debug\net6.0\project.DAL.pdb
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\obj\Debug\net6.0\project.DAL.genruntimeconfig.cache
+D:\DaiHoc\ltcsdl\Social-Network\Web\project.DAL\obj\Debug\net6.0\ref\project.DAL.dll
