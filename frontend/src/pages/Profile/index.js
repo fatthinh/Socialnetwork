@@ -1,38 +1,60 @@
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState, useEffect, useContext } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Profile.module.scss';
-import Image from '~/components/Image';
-import { NewPostIcon } from '~/components/Icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faMap, faUser } from '@fortawesome/free-regular-svg-icons';
-import { faCamera, faExclamation, faPhone, faQuestion } from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faCamera, faEdit, faExclamation, faPhone, faQuestion } from '@fortawesome/free-solid-svg-icons';
 import images from '~/assets/images';
 import * as postServices from '~/services/postService';
 import * as userServices from '~/services/userService';
 import PostList from '~/components/PostList';
+import Button from '~/components/Button';
+import Modal from '~/components/Modal';
+import UploadFile from '~/components/UploadFile';
+import Form from '~/components/Form';
+import AuthContext from '~/utils/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { AppContext } from '~/Context/AppProvider';
+import { FormGroupInput } from '~/components/Form/FormGroup';
 
 const cx = classNames.bind(styles);
 
 function Profile() {
     const [myPosts, setMyPosts] = useState([]);
-    const [currentUser, setCurrentUser] = useState();
+    const { user, checkUserStatus } = useContext(AuthContext);
+    const [changeAvtVisible, setChangeAvtVisible] = useState(false);
+    const [editInfoVisible, setEditInfoVisible] = useState(false);
+    const navigate = useNavigate();
+    const [avatar, setAvatar] = useState();
+    const { setLoaderVisible } = useContext(AppContext);
+    const [email, setEmail] = useState(user.email);
+    const [phone, setPhone] = useState(user.phone);
 
     useEffect(() => {
-        loadMyPosts();
-        loadCurrentUser();
+        if (user) loadMyPosts();
+        else navigate('/');
     }, []);
-
-    const loadCurrentUser = async () => {
-        const res = await userServices.getCurrentuser();
-        setCurrentUser(res);
-    };
 
     const loadMyPosts = async () => {
         const posts = await postServices.getMyPosts();
         setMyPosts(posts);
     };
 
-    return currentUser ? (
+    const onFileChange = (files) => {
+        setAvatar(files[0]);
+    };
+
+    const changeAvtAction = async () => {
+        setLoaderVisible(true);
+        setTimeout(async () => {
+            const res = await userServices.uploadAvatar(sessionStorage.getItem('access-token'), avatar);
+            console.log(res);
+            checkUserStatus();
+            setLoaderVisible(false);
+        }, 1000);
+    };
+
+    return user ? (
         <Fragment>
             <main className={cx('profile')}>
                 <div className={cx('container')}>
@@ -43,62 +65,63 @@ function Profile() {
                                     <div className={cx('row gy-3')}>
                                         <div className={cx('col-12')}>
                                             <h2 className={cx('cart-info__heading')}>Account info</h2>
-                                            <p className={cx('cart-info__desc profile__desc')}>
-                                                Addresses, contact information and password
-                                            </p>
+
+                                            <div
+                                                style={{
+                                                    display: 'flex',
+                                                    justifyContent: 'space-between',
+                                                    paddingTop: 8,
+                                                    paddingBottom: 8,
+                                                }}
+                                            >
+                                                <p className={cx('cart-info__desc profile__desc')}>
+                                                    Addresses, contact information and password
+                                                </p>
+                                                <Button primary onClick={() => setEditInfoVisible(true)}>
+                                                    <FontAwesomeIcon icon={faEdit} />
+                                                </Button>
+                                            </div>
                                             <div className={cx('row gy-md-2 row-cols-2 row-cols-lg-1')}>
                                                 <div className={cx('col')}>
-                                                    <a>
-                                                        <article className={cx('account-info')}>
-                                                            <div className={cx('account-info__icon')}>
-                                                                <FontAwesomeIcon icon={faEnvelope} />
-                                                            </div>
-                                                            <div>
-                                                                <h3 className={cx('account-info__title')}>
-                                                                    Email Address
-                                                                </h3>
-                                                                <p className={cx('account-info__desc')}>
-                                                                    {currentUser.email ?? 'None'}
-                                                                </p>
-                                                            </div>
-                                                        </article>
-                                                    </a>
+                                                    <article className={cx('account-info')}>
+                                                        <div className={cx('account-info__icon')}>
+                                                            <FontAwesomeIcon icon={faEnvelope} />
+                                                        </div>
+                                                        <div>
+                                                            <h3 className={cx('account-info__title')}>Email Address</h3>
+                                                            <p className={cx('account-info__desc')}>
+                                                                {user.email ?? 'None'}
+                                                            </p>
+                                                        </div>
+                                                    </article>
                                                 </div>
 
                                                 <div className={cx('col')}>
-                                                    <a>
-                                                        <article className={cx('account-info')}>
-                                                            <div className={cx('account-info__icon')}>
-                                                                <FontAwesomeIcon icon={faPhone} />
-                                                            </div>
-                                                            <div>
-                                                                <h3 className={cx('account-info__title')}>
-                                                                    Phone number
-                                                                </h3>
-                                                                <p className={cx('account-info__desc')}>
-                                                                    {currentUser.phoneNumber ?? 'None'}
-                                                                </p>
-                                                            </div>
-                                                        </article>
-                                                    </a>
+                                                    <article className={cx('account-info')}>
+                                                        <div className={cx('account-info__icon')}>
+                                                            <FontAwesomeIcon icon={faPhone} />
+                                                        </div>
+                                                        <div>
+                                                            <h3 className={cx('account-info__title')}>Phone number</h3>
+                                                            <p className={cx('account-info__desc')}>
+                                                                {user.phoneNumber ?? 'None'}
+                                                            </p>
+                                                        </div>
+                                                    </article>
                                                 </div>
 
                                                 <div className={cx('col')}>
-                                                    <a>
-                                                        <article className={cx('account-info')}>
-                                                            <div className={cx('account-info__icon')}>
-                                                                <FontAwesomeIcon icon={faMap} />
-                                                            </div>
-                                                            <div>
-                                                                <h3 className={cx('account-info__title')}>
-                                                                    Occupation
-                                                                </h3>
-                                                                <p className={cx('account-info__desc')}>
-                                                                    {currentUser.occupation ?? 'None'}
-                                                                </p>
-                                                            </div>
-                                                        </article>
-                                                    </a>
+                                                    <article className={cx('account-info')}>
+                                                        <div className={cx('account-info__icon')}>
+                                                            <FontAwesomeIcon icon={faBagShopping} />
+                                                        </div>
+                                                        <div>
+                                                            <h3 className={cx('account-info__title')}>Occupation</h3>
+                                                            <p className={cx('account-info__desc')}>
+                                                                {user.occupation ?? 'None'}
+                                                            </p>
+                                                        </div>
+                                                    </article>
                                                 </div>
                                             </div>
                                         </div>
@@ -116,7 +139,7 @@ function Profile() {
                                                     marginBottom: 18,
                                                 }}
                                             >
-                                                <PostList posts={myPosts} myPosts />
+                                                <PostList posts={myPosts} reload={loadMyPosts} myPosts />
                                             </div>
                                         </div>
                                     </div>
@@ -125,54 +148,39 @@ function Profile() {
                             <div className={cx('col-3', 'col-xl-4', 'col-lg-5', 'col-md-12')}>
                                 <aside className={cx('profile__sidebar')}>
                                     <div className={cx('profile-user')}>
-                                        {/* <div class="info-image">
-                                        <a>
-                                            <img
-                                                src="@user.ImageUrl"
-                                                alt="image"
-                                                class="profile-image"
-                                                id="profile-image"
-                                            />
-                                        </a>
-                                        <div class="icon">
-                                            <a onclick="chooseMedia(event)" style="cursor: pointer;">
-                                                <i class="flaticon-photo-camera"></i>
-                                            </a>
-                                        </div>
-                                    </div> */}
                                         <div className={cx('profile-avatar')}>
                                             <img
-                                                src={currentUser.imageUrl ?? images.noImage}
+                                                src={user.imageUrl ?? images.noImage}
                                                 alt=""
                                                 className={cx('profile-user__avatar')}
                                                 style={{ userSelect: 'none' }}
                                             />
-                                            <FontAwesomeIcon icon={faCamera} />
+                                            <button onClick={() => setChangeAvtVisible(true)}>
+                                                <FontAwesomeIcon icon={faCamera} />
+                                            </button>
                                         </div>
-                                        <h1 className={cx('profile-user__name')}>{currentUser.userName}</h1>
-                                        <p className={cx('profile-user__desc')}>
-                                            About me: {currentUser.aboutMe ?? 'None'}
-                                        </p>
+                                        <h1 className={cx('profile-user__name')}>{user.userName}</h1>
+                                        <p className={cx('profile-user__desc')}>About me: {user.aboutMe ?? 'None'}</p>
                                     </div>
 
                                     <div className={cx('profile-menu')}>
                                         <h3 className={cx('profile-menu__title')}>Manage Account</h3>
                                         <ul className={cx('profile-menu__list')}>
                                             <li>
-                                                <a className={cx('profile-menu__link')}>
+                                                <button className={cx('profile-menu__link')}>
                                                     <span className={cx('profile-menu__icon')}>
                                                         <FontAwesomeIcon icon={faUser} />
                                                     </span>
                                                     Personal info
-                                                </a>
+                                                </button>
                                             </li>
                                             <li>
-                                                <a className={cx('profile-menu__link')}>
+                                                <button className={cx('profile-menu__link')}>
                                                     <span className={cx('profile-menu__icon')}>
                                                         <FontAwesomeIcon icon={faEnvelope} />
                                                     </span>
                                                     Communications & privacy
-                                                </a>
+                                                </button>
                                             </li>
                                         </ul>
                                     </div>
@@ -181,20 +189,20 @@ function Profile() {
                                         <h3 className={cx('profile-menu__title')}>Service</h3>
                                         <ul className={cx('profile-menu__list')}>
                                             <li>
-                                                <a className={cx('profile-menu__link')}>
+                                                <button className={cx('profile-menu__link')}>
                                                     <span className={cx('profile-menu__icon')}>
                                                         <FontAwesomeIcon icon={faQuestion} />
                                                     </span>
                                                     Help
-                                                </a>
+                                                </button>
                                             </li>
                                             <li>
-                                                <a className={cx('profile-menu__link')}>
+                                                <button className={cx('profile-menu__link')}>
                                                     <span className={cx('profile-menu__icon')}>
                                                         <FontAwesomeIcon icon={faExclamation} />
                                                     </span>
                                                     Terms of Use
-                                                </a>
+                                                </button>
                                             </li>
                                         </ul>
                                     </div>
@@ -204,6 +212,24 @@ function Profile() {
                     </div>
                 </div>
             </main>
+
+            <Modal
+                heading="Change avatar"
+                modalVisible={changeAvtVisible}
+                setModalVisible={setChangeAvtVisible}
+                action={changeAvtAction}
+            >
+                <Form>
+                    <UploadFile onFileChange={(files) => onFileChange(files)} />
+                </Form>
+            </Modal>
+
+            <Modal heading="Edit information" modalVisible={editInfoVisible} setModalVisible={setEditInfoVisible}>
+                <Form>
+                    <FormGroupInput label="Email" value={email} setValue={setEmail} />
+                    <FormGroupInput label="Phone" type="tel" value={phone} setValue={setPhone} />
+                </Form>
+            </Modal>
         </Fragment>
     ) : (
         <></>

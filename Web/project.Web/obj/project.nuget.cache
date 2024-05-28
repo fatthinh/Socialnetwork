@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "92vlzk8M9xEnCDnakbqZhRTZa51DOg2crdOCZ4MZyfk7l7CVLOXv/wRv6C3PRWlyCh9DNYnyYsJ++cDXzOiULA==",
+  "dgSpecHash": "GFrD41/BfvpivPa8o3x0kRsAbZ9xZbAW4j6idmv4gBWDdiiVVB+OK0PFfgWawfRMKiPD9aO4YNBY3gV40MNc9Q==",
   "success": true,
-  "projectFilePath": "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.Web\\project.Web.csproj",
+  "projectFilePath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\project.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\cloudinarydotnet\\1.21.0\\cloudinarydotnet.1.21.0.nupkg.sha512",

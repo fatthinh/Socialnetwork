@@ -2845,11 +2845,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.BLL\\project.BLL.csproj",
+      "projectUniqueName": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\project.BLL.csproj",
       "projectName": "project.BLL",
-      "projectPath": "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.BLL\\project.BLL.csproj",
+      "projectPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\project.BLL.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.BLL\\obj\\",
+      "outputPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2866,11 +2866,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.common\\project.common.csproj": {
-              "projectPath": "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.common\\project.common.csproj"
+            "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj": {
+              "projectPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj"
             },
-            "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.DAL\\project.DAL.csproj": {
-              "projectPath": "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.DAL\\project.DAL.csproj"
+            "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\project.DAL.csproj": {
+              "projectPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\project.DAL.csproj"
             }
           }
         }

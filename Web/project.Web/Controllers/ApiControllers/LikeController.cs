@@ -15,7 +15,6 @@ namespace project.Web.Controllers.ApiControllers
     /// </summary>
     [Route(Routes.LikeController)]
     [ApiController]
-    [Authorize]
     public class LikeController : ControllerBase
     {
         /// <summary>
@@ -88,13 +87,14 @@ namespace project.Web.Controllers.ApiControllers
         /// <param name="postId">The ID of the post to be liked.</param>
         /// <returns>The updated number of likes for the post.</returns>
         [HttpPost(Routes.LikePost)]
+        [Authorize]
         public async Task<ActionResult<int?>> LikePost(string postId)
         {
             try
             {
-                var currentUser = await UserHelper.GetCurrentUserAsync(_httpContextAccessor, _userService);
+                var currentUserId = await UserHelper.GetCurrentUserAsync(_httpContextAccessor);
 
-                if (currentUser == null)
+                if (currentUserId == null)
                 {
                     return NotFound(Errors.UserNotFound);
                 }
@@ -106,7 +106,7 @@ namespace project.Web.Controllers.ApiControllers
 
                     PostId = postId,
 
-                    UserId = currentUser.Id
+                    UserId = currentUserId
                 };
 
                 await _likeService.AddLikeToPostAsync(like);
@@ -148,18 +148,19 @@ namespace project.Web.Controllers.ApiControllers
         /// <param name="postId">The ID of the post to be unliked.</param>
         /// <returns>The updated number of likes for the post.</returns>
         [HttpPost(Routes.UnlikePost)]
+        [Authorize]
         public async Task<ActionResult<int?>> UnlikePost(string postId)
         {
             try
             {
-                var currentUser = await UserHelper.GetCurrentUserAsync(_httpContextAccessor, _userService);
+                var currentUserId = await UserHelper.GetCurrentUserAsync(_httpContextAccessor);
 
-                if (currentUser == null)
+                if (currentUserId == null)
                 {
                     return NotFound(Errors.UserNotFound);
                 }
 
-                await _likeService.RemoveLikeAsync(currentUser.Id, postId);
+                await _likeService.RemoveLikeAsync(currentUserId, postId);
 
                 var likeCount = await _likeService.GetPostLikeCountAsync(postId);
 
@@ -169,27 +170,6 @@ namespace project.Web.Controllers.ApiControllers
             {
                 return BadRequest(ex.Message);
             }
-        }
-
-        /// <summary>
-        /// Gets the post IDs that the user has liked.
-        /// </summary>
-        /// <param name="userId">The ID of the user to get the liked post IDs for.</param>
-        /// <returns>A list of post IDs that the user has liked.</returns>
-        [HttpGet(Routes.GetPostIdsLiked)]
-        public async Task<ActionResult<IEnumerable<string>>> GetPostsIdsLikeByUser(string userId)
-        {
-            try
-            {
-                var ids = await _likeService.GetPostIdsUserLikedAsync(userId);
-
-                return Ok(ids);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-
         }
 
 
@@ -204,8 +184,8 @@ namespace project.Web.Controllers.ApiControllers
         {
             try
             {
-                var user = await UserHelper.GetCurrentUserAsync(_httpContextAccessor, _userService);
-                var result = await _likeService.UserLikedPostAsync(user.Id, postId);
+                var currentUserId = await UserHelper.GetCurrentUserAsync(_httpContextAccessor);
+                var result = await _likeService.UserLikedPostAsync(currentUserId, postId);
 
                 return Ok(result);
             }

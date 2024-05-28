@@ -10,6 +10,10 @@ import DropFileInput from '~/components/DropFileInput';
 import { AppContext } from '~/Context/AppProvider';
 import * as postServices from '~/services/postService';
 import * as userServices from '~/services/userService';
+import { useSelector } from 'react-redux';
+import PrivateRoutes from './utils/PrivateRoutes';
+import { AuthProvider } from './utils/AuthContext';
+import Loader from './components/Loader';
 
 function App() {
     const { isCreatePostVisible, setIsCreatePostVisible } = useContext(AppContext);
@@ -27,45 +31,49 @@ function App() {
     };
     return (
         <Router>
-            <div className="App">
-                <Routes>
-                    {publicRoutes.map((route, index) => {
-                        const Page = route.component;
-                        let Layout = DefaultLayout;
+            <AuthProvider>
+                <div className="App">
+                    <Routes>
+                        {publicRoutes.map((route, index) => {
+                            const Page = route.component;
+                            let Layout = DefaultLayout;
 
-                        if (route.layout) {
-                            Layout = route.layout;
-                        } else if (route.layout === null) {
-                            Layout = Fragment;
-                        }
+                            if (route.layout) {
+                                Layout = route.layout;
+                            } else if (route.layout === null) {
+                                Layout = Fragment;
+                            }
 
-                        return (
-                            <Route
-                                key={index}
-                                path={route.path}
-                                element={
-                                    <Layout>
-                                        <Page />
-                                    </Layout>
-                                }
-                            />
-                        );
-                    })}
-                </Routes>
-            </div>
+                            return (
+                                <Route
+                                    key={index}
+                                    path={route.path}
+                                    element={
+                                        <Layout>
+                                            <Page />
+                                        </Layout>
+                                    }
+                                />
+                            );
+                        })}
+                    </Routes>
+                </div>
 
-            <Modal
-                heading="New post"
-                action={handleAddPost}
-                create
-                modalVisible={isCreatePostVisible}
-                setModalVisible={setIsCreatePostVisible}
-            >
-                <Form>
-                    <FormGroupText placeholder="Write a caption..." value={caption} setValue={setCaption} />
-                    <DropFileInput onFileChange={(files) => onFileChange(files)} />
-                </Form>
-            </Modal>
+                <Modal
+                    heading="New post"
+                    action={handleAddPost}
+                    create
+                    modalVisible={isCreatePostVisible}
+                    setModalVisible={setIsCreatePostVisible}
+                >
+                    <Form>
+                        <FormGroupText placeholder="Write a caption..." value={caption} setValue={setCaption} />
+                        <DropFileInput onFileChange={(files) => onFileChange(files)} />
+                    </Form>
+                </Modal>
+
+                <Loader />
+            </AuthProvider>
         </Router>
     );
 }

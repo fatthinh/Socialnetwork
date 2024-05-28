@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState, useEffect } from 'react';
+import { Fragment, useRef, useState, useEffect, useContext } from 'react';
 import Image from '../Image';
 import classNames from 'classnames/bind';
 import styles from './PostItem.module.scss';
@@ -18,13 +18,13 @@ import { useOnLoadImages } from '~/hooks/useOnLoadImages';
 import { ClipLoader } from 'react-spinners';
 import * as likeServices from '~/services/likeService';
 import * as postServices from '~/services/postService';
-import * as userServices from '~/services/userService';
-
 import { useNavigate } from 'react-router-dom';
 import Menu from '../Popper/Menu';
 import Modal from '../Modal';
 import Form from '../Form';
 import { FormGroupText } from '../Form/FormGroup';
+import AuthContext from '~/utils/AuthContext';
+import { AppContext } from '~/Context/AppProvider';
 
 const cx = classNames.bind(styles);
 
@@ -47,7 +47,7 @@ const MENU_ITEMS = [
     // },
 ];
 
-function PostItem({ user, postImage, likes, timestamp, description, postID, myPost = false }) {
+function PostItem({ owner, postImage, likes, timestamp, description, postID, myPost = false, reload }) {
     const wrapperRef = useRef(null);
     const imagesLoaded = useOnLoadImages(wrapperRef);
     const [liked, setLiked] = useState(false);
@@ -56,10 +56,10 @@ function PostItem({ user, postImage, likes, timestamp, description, postID, myPo
     const navigate = useNavigate();
     const [showComments, setShowComments] = useState(false);
     const [commentText, setCommentText] = useState('');
-    const [currentUser, setCurrentUser] = useState({});
     const [editVisible, setEditVisible] = useState(false);
     const [caption, setCaption] = useState(description);
-    const [loading, setLoading] = useState(false);
+    const { user } = useContext(AuthContext);
+    const { loaderVisible, setLoaderVisible } = useContext(AppContext);
 
     const getDateTimeDifference = (dateTime) => {
         const requestTime = new Date(dateTime);
@@ -98,15 +98,12 @@ function PostItem({ user, postImage, likes, timestamp, description, postID, myPo
     };
 
     useEffect(() => {
-        getCurrentuser();
-        checkLikedPost();
+        if (user) {
+            checkLikedPost();
+        }
+
         getComments();
     }, []);
-
-    const getCurrentuser = async () => {
-        const user = await userServices.getCurrentuser();
-        setCurrentUser(user);
-    };
 
     const getComments = async () => {
         const res = await postServices.getPostComments(postID);
@@ -117,36 +114,33 @@ function PostItem({ user, postImage, likes, timestamp, description, postID, myPo
     };
 
     const checkLikedPost = async () => {
-        if (currentUser) {
-            const liked = await likeServices.checkLiked(postID);
-            if (liked) {
-                setLiked(true);
-            }
+        const liked = await likeServices.checkLiked(postID);
+        if (liked) {
+            setLiked(true);
         }
     };
 
     const handleEditPost = async () => {
         await postServices.editMyPost(postID, caption);
-        setLoading(true);
+        setLoaderVisible(true);
     };
 
     const handleRemovePost = () => {
         postServices.deleteMyPost(postID);
-        setLoading(true);
+        setLoaderVisible(true);
     };
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setLoading(false);
-        }, 1000);
+            reload();
+            setLoaderVisible(false);
+        }, 500);
 
         return () => clearTimeout(timer);
-    }, [loading]);
-
-    console.log(loading);
+    }, [loaderVisible]);
 
     const handleLike = async (postID) => {
-        if (currentUser) {
+        if (user) {
             if (liked) {
                 await likeServices.unLike(postID);
                 setLiked(false);
@@ -162,7 +156,7 @@ function PostItem({ user, postImage, likes, timestamp, description, postID, myPo
     };
 
     const addComment = async () => {
-        if (currentUser) {
+        if (user) {
             await postServices.addPostComment(postID, commentText);
             getComments();
         } else {
@@ -171,12 +165,16 @@ function PostItem({ user, postImage, likes, timestamp, description, postID, myPo
     };
 
     return (
-        <Fragment>
+        <div style={{ marginTop: 8, marginBottom: 20 }}>
             <div className={cx('post')} id="post-item" ref={wrapperRef} data-id={postID}>
                 <div className={cx('post__header')}>
                     <div className={cx('post__headerAuthor')}>
-                        {!imagesLoaded ? <ClipLoader size={16} /> : <Image avatar src={user.avatar} alt={user.name} />}
-                        <span style={{ marginLeft: 10 }}>{user.name}</span>
+                        {!imagesLoaded ? (
+                            <ClipLoader size={16} />
+                        ) : (
+                            <Image avatar src={owner.avatar} alt={owner.name} />
+                        )}
+                        <span style={{ marginLeft: 10 }}>{owner.name}</span>
                         <span style={{ marginLeft: 20 }}>{getDateTimeDifference(timestamp)}</span>
                     </div>
                     {myPost ? (
@@ -277,7 +275,7 @@ function PostItem({ user, postImage, likes, timestamp, description, postID, myPo
                     <FormGroupText placeholder="Write a caption..." value={caption} setValue={setCaption} />
                 </Form>
             </Modal>
-        </Fragment>
+        </div>
     );
 }
 

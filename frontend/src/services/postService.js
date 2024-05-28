@@ -22,11 +22,7 @@ export const load = async () => {
 
 export const getPostLikeCount = async (postId) => {
     try {
-        const res = await httpRequest.get(`like/GetPostLikeCount/?postId=${postId}`, {
-            headers: {
-                Authorization: `Bearer ${accessToken}`,
-            },
-        });
+        const res = await httpRequest.get(`like/GetPostLikeCount/?postId=${postId}`, {});
         return res;
     } catch (error) {
         console.log(error);

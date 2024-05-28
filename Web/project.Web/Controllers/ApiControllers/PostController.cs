@@ -82,10 +82,10 @@ namespace project.Web.Controllers.ApiControllers
         {
             try
             {
-                //var currentUser = await UserHelper.GetCurrentUserAsync(HttpContext);
-                var currentUser = await _userService.GetUserByIdAsync("90d52ffe-e04f-4e70-9427-0fd5ac218751");
+                var currentUserId = await UserHelper.GetCurrentUserAsync(_httpContextAccessor);
+                //var currentUser = await _userService.GetUserByIdAsync("90d52ffe-e04f-4e70-9427-0fd5ac218751");
 
-                var posts = await _postService.GetRandomPostsForNewsFeedAsync(currentUser.Id);
+                var posts = await _postService.GetRandomPostsForNewsFeedAsync(currentUserId);
 
                 return Ok(posts);
             }
@@ -133,7 +133,7 @@ namespace project.Web.Controllers.ApiControllers
         {
             try
             {
-                var user = await UserHelper.GetCurrentUserAsync(_httpContextAccessor, _userService);
+                var currentUserId = await UserHelper.GetCurrentUserAsync(_httpContextAccessor);
                 var post = await _postService.GetPostByIdAsync(model.PostId);
 
                 if (post == null)
@@ -147,7 +147,7 @@ namespace project.Web.Controllers.ApiControllers
 
                     Text = model.Text,
 
-                    UserId = user.Id,
+                    UserId = currentUserId,
 
                     PostId = model.PostId
                 };
@@ -208,7 +208,7 @@ namespace project.Web.Controllers.ApiControllers
             {
                 IFormFile? mediaFile = model.MediaFile;
 
-                var currentUser = await UserHelper.GetCurrentUserAsync(_httpContextAccessor, _userService);
+                var currentUserId = await UserHelper.GetCurrentUserAsync(_httpContextAccessor);
 
                 var post = new Post()
                 {
@@ -218,7 +218,7 @@ namespace project.Web.Controllers.ApiControllers
 
                     Description = model.Description,
 
-                    UserId = currentUser.Id
+                    UserId = currentUserId
                 };
 
                 // If mediaFile is null, it mean post does not have an image
@@ -297,10 +297,8 @@ namespace project.Web.Controllers.ApiControllers
         {
             try
             {
-                //var userName = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-                //var user = await _userService.GetUserByUsernameAsync(userName);
-                var user = await UserHelper.GetCurrentUserAsync(_httpContextAccessor, _userService);
-                var posts = await _postService.GetAllPostsOfUserAsync(user.Id);
+                var currentUserId = await UserHelper.GetCurrentUserAsync(_httpContextAccessor);
+                var posts = await _postService.GetAllPostsOfUserAsync(currentUserId);
 
                 return Ok(posts);
             }

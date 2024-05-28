@@ -143,9 +143,11 @@ namespace project.Web.Controllers.ApiControllers
 
                 if (result.Succeeded)
                 {
+                    var user = await _userService.GetUserByUsernameAsync(model.Username);
+
                     var authClaims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.NameIdentifier,model.Username),
+                        new Claim(ClaimTypes.NameIdentifier, user.Id),
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                     };
 

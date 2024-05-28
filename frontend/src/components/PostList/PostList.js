@@ -1,12 +1,12 @@
 import PostItem from '../PostItem';
 
-function PostList({ posts, myPosts }) {
+function PostList({ posts, myPosts, reload = () => {} }) {
     return (
         <>
             {posts.map((post, index) => (
                 <PostItem
                     key={index}
-                    user={{
+                    owner={{
                         name: post.user.userName,
                         avatar: post.user.imageUrl,
                     }}
@@ -16,6 +16,7 @@ function PostList({ posts, myPosts }) {
                     likes={post.likes}
                     postID={post.id}
                     myPost={myPosts ? true : false}
+                    reload={reload}
                 />
             ))}
         </>

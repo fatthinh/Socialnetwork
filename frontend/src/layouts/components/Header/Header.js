@@ -24,8 +24,7 @@ import Image from '~/components/Image';
 import Search from '../Search';
 import { useContext, useState } from 'react';
 import { AppContext } from '~/Context/AppProvider';
-import { useSelector, useDispatch } from 'react-redux';
-import authenticationSlice from '~/redux/authenticationSlice';
+import AuthContext from '~/utils/AuthContext';
 
 const cx = classNames.bind(styles);
 
@@ -62,10 +61,7 @@ const MENU_ITEMS = [
 
 function Header() {
     const { setIsCreatePostVisible } = useContext(AppContext);
-    // const currentUser = useSelector((state) => state.authentication.user);
-    const [currentUser, setCurrentUser] = useState(sessionStorage.getItem('access-token'));
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const { user, logoutUser } = useContext(AuthContext);
 
     // Handle logic
     const handleMenuChange = (menuItem) => {
@@ -84,11 +80,6 @@ function Header() {
             to: '/my-profile',
         },
         {
-            icon: <FontAwesomeIcon icon={faCoins} />,
-            title: 'Get coins',
-            to: '/coin',
-        },
-        {
             icon: <FontAwesomeIcon icon={faGear} />,
             title: 'Settings',
             to: '/settings',
@@ -100,9 +91,7 @@ function Header() {
             to: '/',
             separate: true,
             onClick: () => {
-                dispatch(authenticationSlice.actions.logout());
-                setCurrentUser(null);
-                navigate('/');
+                logoutUser();
             },
         },
     ];
@@ -117,7 +106,7 @@ function Header() {
                 <Search />
 
                 <div className={cx('actions')}>
-                    {currentUser ? (
+                    {user ? (
                         <>
                             <Tippy delay={[0, 50]} content="Create new post" placement="bottom">
                                 <button
@@ -147,9 +136,9 @@ function Header() {
                         </Button>
                     )}
 
-                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
-                        {currentUser ? (
-                            <Image avatar src={currentUser.imageUrl ?? images.noImage} alt="Nguyen Van A" />
+                    <Menu items={user ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+                        {user ? (
+                            <Image avatar src={user.imageUrl ?? images.noImage} alt="Nguyen Van A" />
                         ) : (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />

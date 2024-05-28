@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZBB8vhXYIfZ6+14B3MO7AAhec+h/XXwDn4KO24knnsww0bg7W7kKcfe6dPC2ALYDChhSK++Q+p8gkA0ggXmTrA==",
+  "dgSpecHash": "e8s1ZINpRNdMU2BYzNtyP5iMeWZ2c9Zkabapk4GsELfJz1Yl3xBK69edjvoG57J/TORBhmF+PX3kA3Py4sOCbQ==",
   "success": true,
-  "projectFilePath": "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.common\\project.common.csproj",
+  "projectFilePath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\cloudinarydotnet\\1.21.0\\cloudinarydotnet.1.21.0.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

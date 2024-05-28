@@ -16,7 +16,7 @@ namespace project.Web.Helpers.Utilities
         /// </summary>
         /// <param name="httpContext">The HttpContext representing the current HTTP request.</param>
         /// <returns>The current authenticated user, or null if not authenticated.</returns>
-        public static async Task<User?> GetCurrentUserAsync(IHttpContextAccessor _httpContextAccessor, IUserService _userService)
+        public static async Task<string?> GetCurrentUserAsync(IHttpContextAccessor _httpContextAccessor)
         {
             //if (httpContext.User.Identity.IsAuthenticated)
             //{
@@ -26,10 +26,10 @@ namespace project.Web.Helpers.Utilities
             //}
 
             //return null!;
-            var userName = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = await _userService.GetUserByUsernameAsync(userName);
+            var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //var user = await _userService.GetUserByUsernameAsync(userName);
 
-            return user;    
+            return userId;    
         }
     }
 }

@@ -4,7 +4,7 @@ import styles from './Form.module.scss';
 const cx = classNames.bind(styles);
 
 function Form({ children }) {
-    return <form className={cx('form')}>{children}</form>;
+    return <div className={cx('form')}>{children}</div>;
 }
 
 export default Form;

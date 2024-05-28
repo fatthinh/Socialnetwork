@@ -5,7 +5,7 @@ import AccountItem from './AccountItem';
 
 const cx = classNames.bind(styles);
 
-function SuggestedAccounts({ label }) {
+function SuggestedAccounts({ label, followings = [] }) {
     return (
         <div className={cx('wrapper')}>
             <div style={{ display: 'flex ', justifyContent: 'space-between' }}>
@@ -13,12 +13,13 @@ function SuggestedAccounts({ label }) {
                 <p className={cx('more-btn')}>See all</p>
             </div>
 
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
-            <AccountItem />
+            {followings.length ? (
+                followings.map((item) => {
+                    return <AccountItem key={item.id} />;
+                })
+            ) : (
+                <span>No followings</span>
+            )}
         </div>
     );
 }

@@ -8,30 +8,25 @@ import Form from '~/components/Form';
 import { FormGroupCheckbox, FormGroupInput } from '~/components/Form/FormGroup';
 import FormRow from '~/components/Form/FormRow';
 import AuthIntro from '~/components/AuthIntro';
-import { useState, useEffect } from 'react';
-import * as userServices from '~/services/userService';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import authenticationSlice from '~/redux/authenticationSlice';
+import AuthContext from '~/utils/AuthContext';
 
 const cx = classNames.bind(styles);
 
 function SignIn() {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
     // const currentUser = useSelector((state) => state.authentication.user);
     const currentUser = sessionStorage.getItem('access-token');
-
-    const handleSignIn = async (e, username, password, rememberMe) => {
+    const { user, loginUser } = useContext(AuthContext);
+    const handleSignIn = (e, username, password, rememberMe) => {
         e.preventDefault();
 
-        const result = await userServices.login(username, password, rememberMe);
-        if (result) {
-            console.log(result);
-            dispatch(authenticationSlice.actions.login(result));
+        loginUser(username, password, rememberMe);
+        if (user) {
             navigate('/');
         }
     };

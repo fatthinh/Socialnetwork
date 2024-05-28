@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.common\\project.common.csproj": {}
+    "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj": {}
   },
   "projects": {
-    "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.common\\project.common.csproj": {
+    "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.common\\project.common.csproj",
+        "projectUniqueName": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj",
         "projectName": "project.common",
-        "projectPath": "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.common\\project.common.csproj",
+        "projectPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\DaiHoc\\ltcsdl\\Social-Network\\Web\\project.common\\obj\\",
+        "outputPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

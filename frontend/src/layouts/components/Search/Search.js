@@ -1,15 +1,16 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useContext } from 'react';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
-import * as searchServices from '~/services/searchService';
+import * as userServices from '~/services/userService';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons';
 import { useDebounce } from '~/hooks';
 import styles from './Search.module.scss';
+import AuthContext from '~/utils/AuthContext';
 
 const cx = classNames.bind(styles);
 
@@ -18,6 +19,7 @@ function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
+    const { user } = useContext(AuthContext);
 
     const debouncedValue = useDebounce(searchValue, 500);
 
@@ -32,7 +34,7 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true);
 
-            const result = await searchServices.search(debouncedValue);
+            const result = await userServices.searchUsers(debouncedValue);
 
             setSearchResult(result);
             setLoading(false);
@@ -81,7 +83,7 @@ function Search() {
                     <input
                         ref={inputRef}
                         value={searchValue}
-                        placeholder="Search accounts and videos"
+                        placeholder="Search..."
                         spellCheck={false}
                         onChange={handleChange}
                         onFocus={() => setShowResult(true)}
