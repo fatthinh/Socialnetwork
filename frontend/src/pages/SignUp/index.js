@@ -9,8 +9,8 @@ import Button from '~/components/Button';
 import Form from '~/components/Form';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
-import * as userServices from '~/services/userService';
+import { useState, useContext } from 'react';
+import AuthContext from '~/utils/AuthContext';
 
 const cx = classNames.bind(styles);
 
@@ -18,10 +18,11 @@ function SignUp() {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const { registerUser } = useContext(AuthContext);
 
     const handleSignUp = (e) => {
         e.preventDefault();
-        const result = userServices.register(email, username, password);
+        registerUser(email, username, password);
     };
 
     return (

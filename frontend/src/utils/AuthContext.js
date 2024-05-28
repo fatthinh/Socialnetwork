@@ -41,11 +41,7 @@ export const AuthProvider = ({ children }) => {
             let res = await userServices.register(email, username, password);
 
             if (res) {
-                const loginRes = await userServices.login(username, password, false);
-                sessionStorage.setItem('access-token', loginRes);
-                const currentUser = await userServices.getCurrentuser(res);
-                setUser(currentUser);
-                navigate('/');
+                navigate('/sign-in');
             }
         } catch (error) {
             console.error(error);

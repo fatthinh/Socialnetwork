@@ -1,12 +1,88 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.web\\controllers\\apicontrollers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\controllers\\apicontrollers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.web\\controllers\\apicontrollers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\controllers\\apicontrollers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.web\\controllers\\apicontrollers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\controllers\\apicontrollers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Program.cs",
+              "RelativeDocumentMoniker": "project.Web\\Program.cs",
+              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Program.cs",
+              "RelativeToolTip": "project.Web\\Program.cs",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAAAE4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:41:08.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PostController.cs",
+              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\PostController.cs",
+              "RelativeDocumentMoniker": "project.Web\\Controllers\\ApiControllers\\PostController.cs",
+              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\PostController.cs",
+              "RelativeToolTip": "project.Web\\Controllers\\ApiControllers\\PostController.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAgwF4AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T12:58:39.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\UserController.cs",
+              "RelativeDocumentMoniker": "project.Web\\Controllers\\ApiControllers\\UserController.cs",
+              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\UserController.cs",
+              "RelativeToolTip": "project.Web\\Controllers\\ApiControllers\\UserController.cs",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAgwFwAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T12:58:38.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthenticationController.cs",
+              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\AuthenticationController.cs",
+              "RelativeDocumentMoniker": "project.Web\\Controllers\\ApiControllers\\AuthenticationController.cs",
+              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\AuthenticationController.cs",
+              "RelativeToolTip": "project.Web\\Controllers\\ApiControllers\\AuthenticationController.cs",
+              "ViewState": "AQIAAIQAAAAAAAAAAAAgwJQAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T12:48:22.414Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
