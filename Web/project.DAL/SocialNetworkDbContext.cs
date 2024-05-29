@@ -89,5 +89,10 @@ namespace project.common.Core.Concrete.EntityFramework
         /// Represents a DbSet for managing Messages in the database.
         /// </summary>
         public DbSet<Message>? Messages { get; set; }
+
+        /// <summary>
+        /// Represents a DbSet for managing Bookmarks in the database.
+        /// </summary>
+        public DbSet<Bookmark>? Bookmarks { get; set; }
     }
 }

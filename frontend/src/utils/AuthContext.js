@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as userServices from '~/services/userService';
+import cookie from 'react-cookies';
 
 const AuthContext = createContext();
 
@@ -19,7 +20,7 @@ export const AuthProvider = ({ children }) => {
         setLoading(true);
         try {
             const res = await userServices.login(username, password, rememberMe);
-            sessionStorage.setItem('access-token', res);
+            cookie.save('token', res);
             const currentUser = await userServices.getCurrentuser(res);
             setUser(currentUser);
             navigate('/');
@@ -30,7 +31,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logoutUser = async () => {
-        sessionStorage.removeItem('access-token');
+        cookie.remove('token');
         setUser(null);
     };
 
@@ -52,8 +53,7 @@ export const AuthProvider = ({ children }) => {
 
     const checkUserStatus = async () => {
         try {
-            const token = sessionStorage.getItem('access-token');
-            const currentUser = await userServices.getCurrentuser(token);
+            const currentUser = await userServices.getCurrentuser();
             setUser(currentUser);
         } catch (error) {}
         setLoading(false);

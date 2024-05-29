@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --app-bg: #fff;
+    --sidebar: #f3f6fd;
+    --app-content-main-color: #1f1c2e;
+    --app-content-secondary-color: #f3f6fd;
+    --sidebar-link: #1f1c2e;
+    --sidebar-hover-link: rgba(195, 207, 244, 0.5);
+    --sidebar-active-link: rgba(195, 207, 244, 1);
+    --sidebar-main-color: #1f1c2e;
+    --filter-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    --action-color: #2869ff;
+    --action-color-hover: #6291fd;
+}
+
+.app-container {
+    background-color: var(--body-bg);
+    border-radius: 4px;
+    height: 100vh;
+    max-width: 1280px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+.app-content {
+    padding: 16px;
+    background-color: var(--app-bg);
+    height: 100%;
+    flex: 1;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+}

@@ -98,6 +98,25 @@ namespace project.Web.Controllers.ApiControllers
             }
         }
 
+        /// <summary>
+        /// Retrieves the count of all users.
+        /// </summary>
+        /// <returns>The count of all users.</returns>
+        [HttpGet(Routes.GetAllUsersCount)]
+        public async Task<ActionResult<int>> GetAllUsersCount()
+        {
+            try
+            {
+                var users = await _userService.GetAllUsersAsync();
+
+                return Ok(users.Count());
+            }
+            catch
+            {
+                return Ok(0);
+            }
+        }
+
 
         /// <summary>
         /// Updates the current user's profile image with the provided media file.

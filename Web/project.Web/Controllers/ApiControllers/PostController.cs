@@ -83,11 +83,31 @@ namespace project.Web.Controllers.ApiControllers
             try
             {
                 var currentUserId = await UserHelper.GetCurrentUserAsync(_httpContextAccessor);
-                //var currentUser = await _userService.GetUserByIdAsync("90d52ffe-e04f-4e70-9427-0fd5ac218751");
 
                 var posts = await _postService.GetRandomPostsForNewsFeedAsync(currentUserId);
 
                 return Ok(posts);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Retrieves a post by id.
+        /// </summary>
+        [HttpGet("GetPostById")]
+        public async Task<ActionResult<IEnumerable<User>>> GetPostById(string postId)
+        {
+            try
+            {
+                var post = await _postService.GetPostByIdAsync(postId);
+                var ownerId = post.UserId;
+                var owner = await _userService.GetUserByIdAsync(ownerId);
+                post.User = owner;
+
+                return Ok(post);
             }
             catch (Exception ex)
             {

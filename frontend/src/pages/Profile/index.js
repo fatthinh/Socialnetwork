@@ -21,23 +21,38 @@ const cx = classNames.bind(styles);
 
 function Profile() {
     const [myPosts, setMyPosts] = useState([]);
+    const [myBookmarkedPosts, setMyBookmarkedPosts] = useState([]);
     const { user, checkUserStatus } = useContext(AuthContext);
     const [changeAvtVisible, setChangeAvtVisible] = useState(false);
     const [editInfoVisible, setEditInfoVisible] = useState(false);
     const navigate = useNavigate();
     const [avatar, setAvatar] = useState();
     const { setLoaderVisible } = useContext(AppContext);
-    const [email, setEmail] = useState(user.email);
-    const [phone, setPhone] = useState(user.phone);
+    const [email, setEmail] = useState(user ? user.email : '');
+    const [phone, setPhone] = useState(user ? user.phone : '');
 
     useEffect(() => {
-        if (user) loadMyPosts();
-        else navigate('/');
+        checkUserStatus();
+        if (user) {
+            loadMyPosts();
+            loadMyBookmarkedPosts();
+        } else navigate('/');
     }, []);
 
     const loadMyPosts = async () => {
         const posts = await postServices.getMyPosts();
         setMyPosts(posts);
+    };
+
+    const loadMyBookmarkedPosts = async () => {
+        try {
+            const postIds = await postServices.getMyBookmarkedPosts();
+            const promises = postIds.map((itemId) => postServices.getPostById(itemId));
+            const posts = await Promise.all(promises);
+            setMyBookmarkedPosts(posts);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     const onFileChange = (files) => {
@@ -47,8 +62,7 @@ function Profile() {
     const changeAvtAction = async () => {
         setLoaderVisible(true);
         setTimeout(async () => {
-            const res = await userServices.uploadAvatar(sessionStorage.getItem('access-token'), avatar);
-            console.log(res);
+            await userServices.uploadAvatar(avatar);
             checkUserStatus();
             setLoaderVisible(false);
         }, 1000);
@@ -59,10 +73,29 @@ function Profile() {
             <main className={cx('profile')}>
                 <div className={cx('container')}>
                     <div className={cx('profile-container')}>
-                        <div className={cx('row', 'gy-md-3')}>
+                        <div className={cx('row')}>
                             <div className={cx('col-9', ' col-xl-8', ' col-lg-7', ' col-md-12')}>
                                 <div className={cx('cart-info')}>
                                     <div className={cx('row gy-3')}>
+                                        <div className={cx('col-12')}>
+                                            <div className={cx('profile-user')}>
+                                                <div className={cx('profile-avatar')}>
+                                                    <img
+                                                        src={user.imageUrl ?? images.noImage}
+                                                        alt=""
+                                                        className={cx('profile-user__avatar')}
+                                                        style={{ userSelect: 'none' }}
+                                                    />
+                                                    <button onClick={() => setChangeAvtVisible(true)}>
+                                                        <FontAwesomeIcon icon={faCamera} />
+                                                    </button>
+                                                </div>
+                                                <h1 className={cx('profile-user__name')}>{user.userName}</h1>
+                                                <p className={cx('profile-user__desc')}>
+                                                    About me: {user.aboutMe ?? 'None'}
+                                                </p>
+                                            </div>
+                                        </div>
                                         <div className={cx('col-12')}>
                                             <h2 className={cx('cart-info__heading')}>Account info</h2>
 
@@ -126,87 +159,59 @@ function Profile() {
                                             </div>
                                         </div>
 
-                                        <div className={cx('col-12')}>
-                                            <h2 className={cx('cart-info__heading')}>Posts</h2>
-                                            <p className={cx('cart-info__desc profile__desc')}></p>
+                                        {myPosts.length ? (
                                             <div
-                                                className={cx('col')}
-                                                style={{
-                                                    display: 'flex',
-                                                    alignItems: 'center',
-                                                    flexDirection: 'column',
-                                                    marginTop: 8,
-                                                    marginBottom: 18,
-                                                }}
+                                                className={cx('col-12')}
+                                                style={{ maxHeight: 420, overflow: 'scroll' }}
                                             >
-                                                <PostList posts={myPosts} reload={loadMyPosts} myPosts />
+                                                <h2 className={cx('cart-info__heading')}>My Posts</h2>
+                                                <p className={cx('cart-info__desc profile__desc')}></p>
+                                                <div
+                                                    className={cx('col')}
+                                                    style={{
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        flexDirection: 'column',
+                                                        marginTop: 8,
+                                                        marginBottom: 18,
+                                                        maxHeight: 800,
+                                                        overflow: 'scroll',
+                                                    }}
+                                                >
+                                                    <PostList posts={myPosts} reload={loadMyPosts} myPosts />
+                                                </div>
                                             </div>
-                                        </div>
+                                        ) : (
+                                            <></>
+                                        )}
+
+                                        {myBookmarkedPosts.length ? (
+                                            <div className={cx('col-12')}>
+                                                <h2 className={cx('cart-info__heading')}>My Bookmarked Posts</h2>
+                                                <p className={cx('cart-info__desc profile__desc')}></p>
+                                                <div
+                                                    className={cx('col')}
+                                                    style={{
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        flexDirection: 'column',
+                                                        marginTop: 8,
+                                                        marginBottom: 18,
+                                                        maxHeight: 800,
+                                                        overflow: 'scroll',
+                                                    }}
+                                                >
+                                                    <PostList
+                                                        posts={myBookmarkedPosts}
+                                                        reload={loadMyBookmarkedPosts}
+                                                    />
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <></>
+                                        )}
                                     </div>
                                 </div>
-                            </div>
-                            <div className={cx('col-3', 'col-xl-4', 'col-lg-5', 'col-md-12')}>
-                                <aside className={cx('profile__sidebar')}>
-                                    <div className={cx('profile-user')}>
-                                        <div className={cx('profile-avatar')}>
-                                            <img
-                                                src={user.imageUrl ?? images.noImage}
-                                                alt=""
-                                                className={cx('profile-user__avatar')}
-                                                style={{ userSelect: 'none' }}
-                                            />
-                                            <button onClick={() => setChangeAvtVisible(true)}>
-                                                <FontAwesomeIcon icon={faCamera} />
-                                            </button>
-                                        </div>
-                                        <h1 className={cx('profile-user__name')}>{user.userName}</h1>
-                                        <p className={cx('profile-user__desc')}>About me: {user.aboutMe ?? 'None'}</p>
-                                    </div>
-
-                                    <div className={cx('profile-menu')}>
-                                        <h3 className={cx('profile-menu__title')}>Manage Account</h3>
-                                        <ul className={cx('profile-menu__list')}>
-                                            <li>
-                                                <button className={cx('profile-menu__link')}>
-                                                    <span className={cx('profile-menu__icon')}>
-                                                        <FontAwesomeIcon icon={faUser} />
-                                                    </span>
-                                                    Personal info
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button className={cx('profile-menu__link')}>
-                                                    <span className={cx('profile-menu__icon')}>
-                                                        <FontAwesomeIcon icon={faEnvelope} />
-                                                    </span>
-                                                    Communications & privacy
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                    <div className={cx('profile-menu')}>
-                                        <h3 className={cx('profile-menu__title')}>Service</h3>
-                                        <ul className={cx('profile-menu__list')}>
-                                            <li>
-                                                <button className={cx('profile-menu__link')}>
-                                                    <span className={cx('profile-menu__icon')}>
-                                                        <FontAwesomeIcon icon={faQuestion} />
-                                                    </span>
-                                                    Help
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button className={cx('profile-menu__link')}>
-                                                    <span className={cx('profile-menu__icon')}>
-                                                        <FontAwesomeIcon icon={faExclamation} />
-                                                    </span>
-                                                    Terms of Use
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </aside>
                             </div>
                         </div>
                     </div>

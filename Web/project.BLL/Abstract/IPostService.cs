@@ -95,5 +95,8 @@ namespace project.BLL.Abstract
         /// <param name="userId">The ID of the user whose post likes will be deleted.</param>
         /// <returns>Task representing the asynchronous operation.</returns>
         Task EditPostAsync(string postId, string description);
+
+        Task<IEnumerable<Post>> GetPostsInPageAsync(int page, DateTime startDate, DateTime endDate);
+
     }
 }

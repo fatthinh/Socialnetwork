@@ -25,6 +25,7 @@ import Form from '../Form';
 import { FormGroupText } from '../Form/FormGroup';
 import AuthContext from '~/utils/AuthContext';
 import { AppContext } from '~/Context/AppProvider';
+import { getDateTimeDifference } from '~/utils';
 
 const cx = classNames.bind(styles);
 
@@ -51,6 +52,8 @@ function PostItem({ owner, postImage, likes, timestamp, description, postID, myP
     const wrapperRef = useRef(null);
     const imagesLoaded = useOnLoadImages(wrapperRef);
     const [liked, setLiked] = useState(false);
+    const [bookmarked, setBookmarked] = useState(false);
+
     const [comments, setComments] = useState([]);
     const [postLikes, setPostLikes] = useState(likes);
     const navigate = useNavigate();
@@ -61,45 +64,10 @@ function PostItem({ owner, postImage, likes, timestamp, description, postID, myP
     const { user } = useContext(AuthContext);
     const { loaderVisible, setLoaderVisible } = useContext(AppContext);
 
-    const getDateTimeDifference = (dateTime) => {
-        const requestTime = new Date(dateTime);
-        const currentTime = new Date();
-
-        // Calculate the time difference in milliseconds
-        const difference = Math.abs(currentTime.getTime() - requestTime.getTime());
-
-        // If the time difference is less than 1 second, return "Right now"
-        if (difference < 1000) {
-            return 'Right now';
-        }
-
-        // Convert milliseconds to seconds, minutes, hours, days, months, and years
-        const seconds = Math.floor(difference / 1000);
-        const minutes = Math.floor(seconds / 60);
-        const hours = Math.floor(minutes / 60);
-        const days = Math.floor(hours / 24);
-        const months = Math.floor(days / 30);
-        const years = Math.floor(months / 12);
-
-        // Format the result as a string
-        if (years > 0) {
-            return years + (years === 1 ? ' year ago' : ' years ago');
-        } else if (months > 0) {
-            return months + (months === 1 ? ' month ago' : ' months ago');
-        } else if (days > 0) {
-            return days + (days === 1 ? ' day ago' : ' days ago');
-        } else if (hours > 0) {
-            return hours + (hours === 1 ? ' hour ago' : ' hours ago');
-        } else if (minutes > 0) {
-            return minutes + (minutes === 1 ? ' minute ago' : ' minutes ago');
-        } else {
-            return seconds + (seconds === 1 ? ' second ago' : ' seconds ago');
-        }
-    };
-
     useEffect(() => {
         if (user) {
             checkLikedPost();
+            checkBookmarkedPost();
         }
 
         getComments();
@@ -114,10 +82,14 @@ function PostItem({ owner, postImage, likes, timestamp, description, postID, myP
     };
 
     const checkLikedPost = async () => {
-        const liked = await likeServices.checkLiked(postID);
-        if (liked) {
-            setLiked(true);
-        }
+        const userLiked = await likeServices.checkLiked(postID);
+        setLiked(userLiked);
+    };
+
+    const checkBookmarkedPost = async () => {
+        const userBookmarked = await postServices.checkBookmarked(postID);
+        setBookmarked(userBookmarked);
+        console.log(userBookmarked);
     };
 
     const handleEditPost = async () => {
@@ -139,7 +111,7 @@ function PostItem({ owner, postImage, likes, timestamp, description, postID, myP
         return () => clearTimeout(timer);
     }, [loaderVisible]);
 
-    const handleLike = async (postID) => {
+    const handleLike = async () => {
         if (user) {
             if (liked) {
                 await likeServices.unLike(postID);
@@ -159,6 +131,20 @@ function PostItem({ owner, postImage, likes, timestamp, description, postID, myP
         if (user) {
             await postServices.addPostComment(postID, commentText);
             getComments();
+        } else {
+            navigate('/sign-in');
+        }
+    };
+
+    const handleBookmark = async () => {
+        if (user) {
+            if (bookmarked) {
+                await postServices.unBookmark(postID);
+                setBookmarked(false);
+            } else {
+                await postServices.addBookmark(postID);
+                setBookmarked(true);
+            }
         } else {
             navigate('/sign-in');
         }
@@ -195,7 +181,7 @@ function PostItem({ owner, postImage, likes, timestamp, description, postID, myP
                 <div className={cx('post__footer')}>
                     <div className={cx('post__footerIcons')}>
                         <div className={cx('post__iconsMain')}>
-                            <Button small className={cx('post-icon')} onClick={() => handleLike(postID)}>
+                            <Button small className={cx('post-icon')} onClick={handleLike}>
                                 {liked ? (
                                     <h4 style={{ color: 'var(--primary)' }}>
                                         <FontAwesomeIcon icon={faHeart} />
@@ -212,8 +198,14 @@ function PostItem({ owner, postImage, likes, timestamp, description, postID, myP
                             </Button>
                         </div>
                         <div className={cx('post__iconSave')}>
-                            <Button small className={cx('post-icon')}>
-                                <FontAwesomeIcon icon={faBookmark} />
+                            <Button small className={cx('post-icon')} onClick={handleBookmark}>
+                                {bookmarked ? (
+                                    <h4 style={{ color: 'var(--primary)' }}>
+                                        <FontAwesomeIcon icon={faBookmark} />
+                                    </h4>
+                                ) : (
+                                    <FontAwesomeIcon icon={faBookmark} />
+                                )}
                             </Button>
                         </div>
                     </div>

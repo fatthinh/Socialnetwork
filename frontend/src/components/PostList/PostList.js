@@ -7,8 +7,8 @@ function PostList({ posts, myPosts, reload = () => {} }) {
                 <PostItem
                     key={index}
                     owner={{
-                        name: post.user.userName,
-                        avatar: post.user.imageUrl,
+                        name: post.user?.userName,
+                        avatar: post.user?.imageUrl,
                     }}
                     postImage={post.contentUrl}
                     timestamp={post.createdAt}

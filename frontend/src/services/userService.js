@@ -1,4 +1,5 @@
 import * as httpRequest from '~/utils/httpRequest';
+import cookie from 'react-cookies';
 
 export const register = async (email, username, password) => {
     try {
@@ -26,13 +27,9 @@ export const login = async (username, password, rememberMe) => {
     }
 };
 
-export const getCurrentuser = async (accessToken) => {
+export const getCurrentuser = async () => {
     try {
-        const res = await httpRequest.get('user/GetCurrentUser', {
-            headers: {
-                Authorization: `Bearer ${accessToken}`,
-            },
-        });
+        const res = await httpRequest.get('user/GetCurrentUser');
 
         return res;
     } catch (error) {
@@ -40,14 +37,14 @@ export const getCurrentuser = async (accessToken) => {
     }
 };
 
-export const uploadAvatar = async (accessToken, file) => {
+export const uploadAvatar = async (file) => {
     try {
         const formData = new FormData();
         formData.append('MediaFile', file);
         const res = await httpRequest.post('user/UpdateProfileImage', formData, {
             headers: {
+                Authorization: `Bearer ${cookie.load('token')}`,
                 'Content-Type': 'multipart/form-data',
-                Authorization: `Bearer ${accessToken}`,
             },
         });
         return res;
@@ -71,7 +68,7 @@ export const searchUsers = async (search) => {
 
 export const getFollowings = async () => {
     try {
-        const res = await httpRequest.get(`user/GetFollowings`, {});
+        const res = await httpRequest.get(`user/GetFollowings`);
         return res;
     } catch (error) {
         console.log(error);

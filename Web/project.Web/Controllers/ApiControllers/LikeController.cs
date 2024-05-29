@@ -180,6 +180,7 @@ namespace project.Web.Controllers.ApiControllers
         /// <param name="postId">The ID of the post to check if the user has liked.</param>
         /// <returns>True if the user has liked the post, false otherwise.</returns>
         [HttpGet(Routes.UserLikedPost)]
+        [Authorize]
         public async Task<ActionResult<bool>> UserLikedPost(string postId)
         {
             try

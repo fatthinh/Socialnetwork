@@ -85,6 +85,27 @@ namespace project.BLL.Concrete
         }
 
         /// <summary>
+        /// Retrieves posts asynchronously in page.
+        /// </summary>
+        /// <returns>A collection of Post objects representing  posts.</returns>
+        public async Task<IEnumerable<Post>> GetPostsInPageAsync(int page, DateTime startDate, DateTime endDate)
+        {
+            var posts = (await _postDal.GetAllAsync())
+                            .Where(p => p.CreatedAt >= startDate && p.CreatedAt <= endDate)
+                            .ToList();
+
+            // Load the user information for each post asynchronously
+            await Task.WhenAll(posts.Select(async p => p.User = await _userService.GetUserByIdAsync(p.UserId)));
+
+            var sortedPosts = posts.OrderByDescending(p => p.CreatedAt);
+
+            var itemsInPage = 20;
+            var itemsToSkip = page * itemsInPage;
+            
+            return posts.Skip(itemsToSkip).Take(itemsInPage);
+        }
+
+        /// <summary>
         /// Retrieves random posts for the news feed of a user asynchronously.
         /// </summary>
         /// <param name="currentUserId">The ID of the user whose news feed posts will be retrieved.</param>

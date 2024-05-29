@@ -7,6 +7,8 @@ const routes = {
     signin: '/sign-in',
     signup: '/sign-up',
     myProfile: '/my-profile',
+    admin: '/admin',
+    dashboard: '/admin/dashboard',
 };
 
 export default routes;

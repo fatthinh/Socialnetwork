@@ -58,6 +58,10 @@ builder.Services.AddScoped<IChatDal, EFChatDal>();
 builder.Services.AddScoped<IChatService, ChatService>();
 builder.Services.AddScoped<IMessageDal, EFMessageDal>();
 builder.Services.AddScoped<IMessageService, MessageService>();
+builder.Services.AddScoped<IBookmarkService, BookmarkService>();
+builder.Services.AddScoped<IBookmarkDal, EFBookmarkDal>();
+
+
 
 
 // Register Session

@@ -1,17 +1,7 @@
 import * as httpRequest from '~/utils/httpRequest';
-const accessToken = sessionStorage.getItem('access-token');
-
 export const addLike = async (postId) => {
     try {
-        const res = await httpRequest.post(
-            `like/LikePost/?postId=${postId}`,
-            {},
-            {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            },
-        );
+        const res = await httpRequest.post(`like/LikePost/?postId=${postId}`);
 
         return res;
     } catch (error) {
@@ -21,15 +11,7 @@ export const addLike = async (postId) => {
 
 export const unLike = async (postId) => {
     try {
-        const res = await httpRequest.post(
-            `like/UnlikePost/?postId=${postId}`,
-            {},
-            {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            },
-        );
+        const res = await httpRequest.post(`like/UnlikePost/?postId=${postId}`);
 
         return res;
     } catch (error) {
@@ -39,11 +21,7 @@ export const unLike = async (postId) => {
 
 export const checkLiked = async (postId) => {
     try {
-        const res = await httpRequest.get(`like/UserLikedPost/?postId=${postId}`, {
-            headers: {
-                Authorization: `Bearer ${accessToken}`,
-            },
-        });
+        const res = await httpRequest.get(`like/UserLikedPost/?postId=${postId}`);
 
         return res;
     } catch (error) {
