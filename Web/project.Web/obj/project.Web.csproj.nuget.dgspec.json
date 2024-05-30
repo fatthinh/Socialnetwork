@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\project.Web.csproj": {}
+    "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\project.Web.csproj": {}
   },
   "projects": {
-    "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\project.BLL.csproj": {
+    "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\project.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\project.BLL.csproj",
+        "projectUniqueName": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\project.BLL.csproj",
         "projectName": "project.BLL",
-        "projectPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\project.BLL.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\obj\\",
+        "projectPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\project.BLL.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,17 +26,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj": {
-                "projectPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj"
+              "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.common\\project.common.csproj": {
+                "projectPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.common\\project.common.csproj"
               },
-              "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\project.DAL.csproj": {
-                "projectPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\project.DAL.csproj"
+              "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\project.DAL.csproj": {
+                "projectPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\project.DAL.csproj"
               }
             }
           }
@@ -97,21 +102,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj": {
+    "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.common\\project.common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj",
+        "projectUniqueName": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.common\\project.common.csproj",
         "projectName": "project.common",
-        "projectPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\obj\\",
+        "projectPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.common\\project.common.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.common\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -119,6 +128,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -191,21 +201,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\project.DAL.csproj": {
+    "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\project.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\project.DAL.csproj",
+        "projectUniqueName": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\project.DAL.csproj",
         "projectName": "project.DAL",
-        "projectPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\project.DAL.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\obj\\",
+        "projectPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\project.DAL.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -213,14 +227,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj": {
-                "projectPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj"
+              "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.common\\project.common.csproj": {
+                "projectPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.common\\project.common.csproj"
               }
             }
           }
@@ -285,21 +300,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\project.Web.csproj": {
+    "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\project.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\project.Web.csproj",
+        "projectUniqueName": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\project.Web.csproj",
         "projectName": "project.Web",
-        "projectPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\project.Web.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\obj\\",
+        "projectPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\project.Web.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -307,17 +326,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\project.BLL.csproj": {
-                "projectPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\project.BLL.csproj"
+              "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\project.BLL.csproj": {
+                "projectPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\project.BLL.csproj"
               },
-              "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj": {
-                "projectPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.common\\project.common.csproj"
+              "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.common\\project.common.csproj": {
+                "projectPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.common\\project.common.csproj"
               }
             }
           }
@@ -384,6 +404,18 @@
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.6.2, )"
             }
           },
           "imports": [
@@ -405,7 +437,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

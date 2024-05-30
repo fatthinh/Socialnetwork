@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using project.BLL.Abstract;
 using project.BLL.Concrete;
 using project.common.Core.Concrete.EntityFramework;
@@ -15,6 +16,7 @@ using project.Web.Abstract;
 using project.Web.Concrete;
 using project.Web.Helpers.ConstantHelpers;
 using project.Web.Hubs;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -60,6 +62,30 @@ builder.Services.AddScoped<IMessageDal, EFMessageDal>();
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped<IBookmarkService, BookmarkService>();
 builder.Services.AddScoped<IBookmarkDal, EFBookmarkDal>();
+builder.Services.AddControllers();
+builder.Services.AddSwaggerGen(options => {
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "Test API",
+        Description = "A simple example for swagger api information",
+        TermsOfService = new Uri("https://example.com/terms"),
+        Contact = new OpenApiContact
+        {
+            Name = "Your Name XYZ",
+            Email = "xyz@gmail.com",
+            Url = new Uri("https://example.com"),
+        },
+        License = new OpenApiLicense
+        {
+            Name = "Use under OpenApiLicense",
+            Url = new Uri("https://example.com/license"),
+        }
+    });
+    var filename = Assembly.GetExecutingAssembly().GetName().Name + ".xml";
+    var filepath = Path.Combine(AppContext.BaseDirectory, filename);
+    options.IncludeXmlComments(filepath);
+});
 
 
 
@@ -133,6 +159,16 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "My test api v1");
+    });
+}
+
 
 // Use Session
 app.UseSession();

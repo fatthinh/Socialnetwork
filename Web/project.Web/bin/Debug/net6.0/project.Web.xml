@@ -1,0 +1,1705 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>project.Web</name>
+    </assembly>
+    <members>
+        <member name="T:project.Web.Abstract.IMediaService">
+            <summary>
+            Interface for managing media-related operations, such as uploading media files and determining if a file is a video.
+            </summary>
+        </member>
+        <member name="M:project.Web.Abstract.IMediaService.UploadMediaAsync(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Uploads a media file asynchronously to the cloud storage service.
+            </summary>
+            <param name="file">The media file to be uploaded.</param>
+            <returns>The URL of the uploaded media file.</returns>
+        </member>
+        <member name="M:project.Web.Abstract.IMediaService.IsVideoFile(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Determines if a media file is a video.
+            </summary>
+            <param name="mediaFile">The media file to check.</param>
+            <returns>True if the file is a video, false otherwise.</returns>
+        </member>
+        <member name="T:project.Web.Abstract.IStaticService">
+            <summary>
+            Interface for managing static content-related operations, such as retrieving random cover images, status image paths, watch videos, advertisements, and special users.
+            </summary>
+        </member>
+        <member name="M:project.Web.Abstract.IStaticService.GetRandomCoverImage(System.String)">
+            <summary>
+            Retrieves a random cover image URL from the specified path.
+            </summary>
+            <param name="path">The file path containing the list of cover image URLs.</param>
+            <returns>A random cover image URL.</returns>
+        </member>
+        <member name="M:project.Web.Abstract.IStaticService.GetRandomStatusImagePaths(System.Int32,System.String)">
+            <summary>
+            Retrieves a list of random status image paths from the specified path.
+            </summary>
+            <param name="count">The number of random status image paths to retrieve.</param>
+            <param name="path">The file path containing the list of status image URLs.</param>
+            <returns>A list of random status image paths.</returns>
+        </member>
+        <member name="M:project.Web.Abstract.IStaticService.GetWatchVideos(System.String)">
+            <summary>
+            Retrieves a list of watch videos from the specified path.
+            </summary>
+            <param name="path">The file path containing the list of watch videos.</param>
+            <returns>A list of watch videos.</returns>
+        </member>
+        <member name="M:project.Web.Abstract.IStaticService.GetAdvertisements(System.String)">
+            <summary>
+            Retrieves a list of advertisements from the specified path.
+            </summary>
+            <param name="path">The file path containing the list of advertisements.</param>
+            <returns>A list of advertisements.</returns>
+        </member>
+        <member name="M:project.Web.Abstract.IStaticService.GetSpecialUsersAsync">
+            <summary>
+            Retrieves a list of special users asynchronously.
+            </summary>
+            <returns>A list of special users.</returns>
+        </member>
+        <member name="T:project.Web.Concrete.MediaService">
+            <summary>
+            Concrete implementation of the <see cref="T:project.Web.Abstract.IMediaService"/> interface.
+            Provides functionality to upload media files to Cloudinary and check if a file is a video file.
+            </summary>
+        </member>
+        <member name="F:project.Web.Concrete.MediaService._configuration">
+            <summary>
+            Configuration object used for managing Cloudinary settings.
+            </summary>
+        </member>
+        <member name="F:project.Web.Concrete.MediaService._cloudinarySettings">
+            <summary>
+            Cloudinary settings instance.
+            </summary>
+        </member>
+        <member name="F:project.Web.Concrete.MediaService._cloudinary">
+            <summary>
+            Cloudinary instance for interacting with the Cloudinary service.
+            </summary>
+        </member>
+        <member name="M:project.Web.Concrete.MediaService.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the MediaService class with the provided configuration.
+            </summary>
+            <param name="configuration">The configuration object providing access to Cloudinary settings.</param>
+        </member>
+        <member name="M:project.Web.Concrete.MediaService.UploadMediaAsync(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Uploads the provided media file to Cloudinary and returns the URL of the uploaded file.
+            </summary>
+            <param name="file">The media file to be uploaded.</param>
+            <returns>The URL of the uploaded file.</returns>
+        </member>
+        <member name="M:project.Web.Concrete.MediaService.IsVideoFile(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Checks if the provided media file is a video file.
+            </summary>
+            <param name="mediaFile">The media file to be checked.</param>
+            <returns>True if the file is a video file; otherwise, false.</returns>
+        </member>
+        <member name="T:project.Web.Concrete.StaticService">
+            <summary>
+            Concrete implementation of the IStaticService interface for managing static content.
+            </summary>
+        </member>
+        <member name="F:project.Web.Concrete.StaticService._userService">
+            <summary>
+            Private field holding an instance of the <see cref="T:project.BLL.Abstract.IUserService"/> interface.
+            It provides access to user-related operations and functionalities.
+            </summary>
+        </member>
+        <member name="M:project.Web.Concrete.StaticService.#ctor(project.BLL.Abstract.IUserService)">
+            <summary>
+            Initializes a new instance of the StaticService class.
+            </summary>
+            <param name="userService">The user service used for user-related operations.</param>
+        </member>
+        <member name="M:project.Web.Concrete.StaticService.GetAdvertisements(System.String)">
+            <summary>
+            Get a list of advertisements randomly shuffled and limited to a specific count from the given file path.
+            </summary>
+            <param name="path">The file path containing the advertisement data.</param>
+            <returns>A list of Advertisement objects.</returns>
+        </member>
+        <member name="M:project.Web.Concrete.StaticService.GetRandomCoverImage(System.String)">
+            <summary>
+            Get a random cover image URL from the given file path.
+            </summary>
+            <param name="path">The file path containing the image URLs.</param>
+            <returns>A randomly selected image URL.</returns>
+        </member>
+        <member name="M:project.Web.Concrete.StaticService.GetRandomStatusImagePaths(System.Int32,System.String)">
+            <summary>
+            Get a list of random status image URLs from the given file path.
+            </summary>
+            <param name="count">The number of random image URLs to return.</param>
+            <param name="path">The file path containing the image URLs.</param>
+            <returns>A list of random image URLs.</returns>
+        </member>
+        <member name="M:project.Web.Concrete.StaticService.GetSpecialUsersAsync">
+            <summary>
+            Get a list of special users asynchronously from the file containing their IDs.
+            </summary>
+            <returns>A list of User objects representing special users.</returns>
+        </member>
+        <member name="M:project.Web.Concrete.StaticService.GetWatchVideos(System.String)">
+            <summary>
+            Get a list of watch videos randomly shuffled and limited to a specific count from the given file path.
+            </summary>
+            <param name="path">The file path containing the video data.</param>
+            <returns>A list of Video objects.</returns>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.AdminController._postService">
+            <summary>
+            The service responsible for handling post-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.AdminController._userService">
+            <summary>
+            The service responsible for handling user-related operations.
+            </summary>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.AdminController.#ctor(project.BLL.Abstract.IPostService,project.BLL.Abstract.IUserService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Initializes a new instance of the PostController class with the specified services.
+            </summary>
+            <param name="postService">The service for handling post-related operations.</param>
+            <param name="userService">The service for handling user-related operations.</param>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.AuthenticationController._signInManager">
+            <summary>
+            Gets the manager for user sign-in functionality.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.AuthenticationController._userManager">
+            <summary>
+            The user manager component used for managing user-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.AuthenticationController._roleManager">
+            <summary>
+            The role manager component used for managing roles.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.AuthenticationController._userService">
+            <summary>
+            The IUserService component used for user-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.AuthenticationController._staticService">
+            <summary>
+            The service responsible for handling static content and data.
+            </summary>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.AuthenticationController.#ctor(Microsoft.AspNetCore.Identity.SignInManager{project.DAL.Entities.User},Microsoft.AspNetCore.Identity.UserManager{project.DAL.Entities.User},Microsoft.AspNetCore.Identity.RoleManager{project.DAL.Entities.Role},project.BLL.Abstract.IUserService,project.Web.Abstract.IStaticService,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the AuthenticationController class with the specified services and managers.
+            </summary>
+            <param name="signInManager">The manager for handling sign-in operations for users.</param>
+            <param name="userManager">The manager for handling user-related operations.</param>
+            <param name="roleManager">The manager for handling role-related operations.</param>
+            <param name="userService">The service for handling user-related operations.</param>
+            <param name="staticService">The service for handling static content and data.</param>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.AuthenticationController.Register(project.Web.Models.RegisterViewModel)">
+            <summary>
+            Handles the registration process for a new user.
+            </summary>
+            <param name="model">The RegisterViewModel containing the user's registration details.</param>
+            <returns>The appropriate ActionResult based on the registration result.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.AuthenticationController.Login(project.Web.Models.LoginViewModel)">
+            <summary>
+            Handles the login process for a user.
+            </summary>
+            <param name="model">The LoginViewModel containing the user's login credentials.</param>
+            <returns>The appropriate ActionResult based on the login result.</returns>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.BookmarkController._bookmarkService">
+            <summary>
+            The service responsible for handling like-related operations.
+            </summary>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.BookmarkController.GetPostsIdsLikeByUser">
+            <summary>
+            Gets the post IDs that the user has bookmarked.
+            </summary>
+            <returns>A list of post IDs that the user has bookmarked.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.BookmarkController.BookmarkPost(System.String)">
+            <summary>
+            Bookmarks a post with the specified ID.
+            </summary>
+            <param name="postId">The ID of the post to be bookmarked.</param>
+            <returns>The updated number of bookmarks for the post.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.BookmarkController.UnlikePost(System.String)">
+            <summary>
+            Unlikes a post with the specified ID.
+            </summary>
+            <param name="postId">The ID of the post to be unbookmarked.</param>
+            <returns>The updated number of bookmarkes for the post.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.BookmarkController.UserbookmarkedPost(System.String)">
+            <summary>
+            Checks if a user has bookmarked a specific post.
+            </summary>
+            <param name="userId">The ID of the user to check if they have bookmarked the post.</param>
+            <param name="postId">The ID of the post to check if the user has bookmarked.</param>
+            <returns>True if the user has bookmarked the post, false otherwise.</returns>
+        </member>
+        <member name="T:project.Web.Controllers.ApiControllers.LikeController">
+            <summary>
+            API controller responsible for handling post like-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.LikeController._likeService">
+            <summary>
+            The service responsible for handling like-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.LikeController._postService">
+            <summary>
+            The service responsible for handling post-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.LikeController._notificationService">
+            <summary>
+            The service responsible for handling notification-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.LikeController._userManager">
+            <summary>
+            The user manager component used for managing user-related operations.
+            </summary>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.LikeController.#ctor(project.BLL.Abstract.ILikeService,project.BLL.Abstract.IPostService,project.BLL.Abstract.INotificationService,Microsoft.AspNetCore.Identity.UserManager{project.DAL.Entities.User},Microsoft.AspNetCore.Http.IHttpContextAccessor,project.BLL.Abstract.IUserService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:project.Web.Controllers.ApiControllers.LikeController"/> class with the specified services.
+            </summary>
+            <param name="likeService">The service for handling like-related operations.</param>
+            <param name="postService">The service for handling post-related operations.</param>
+            <param name="notificationService">The service for handling notification-related operations.</param>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.LikeController.GetPostLikeCount(System.String)">
+            <summary>
+            Gets the number of likes for a post with the specified ID.
+            </summary>
+            <param name="postId">The ID of the post to get the like count for.</param>
+            <returns>The number of likes for the post.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.LikeController.LikePost(System.String)">
+            <summary>
+            Likes a post with the specified ID.
+            </summary>
+            <param name="postId">The ID of the post to be liked.</param>
+            <returns>The updated number of likes for the post.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.LikeController.UnlikePost(System.String)">
+            <summary>
+            Unlikes a post with the specified ID.
+            </summary>
+            <param name="postId">The ID of the post to be unliked.</param>
+            <returns>The updated number of likes for the post.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.LikeController.UserLikedPost(System.String)">
+            <summary>
+            Checks if a user has liked a specific post.
+            </summary>
+            <param name="userId">The ID of the user to check if they have liked the post.</param>
+            <param name="postId">The ID of the post to check if the user has liked.</param>
+            <returns>True if the user has liked the post, false otherwise.</returns>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.PostController._mediaService">
+            <summary>
+            The service responsible for handling media-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.PostController._postService">
+            <summary>
+            The service responsible for handling post-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.PostController._userService">
+            <summary>
+            The service responsible for handling user-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.PostController._commentService">
+            <summary>
+            The service responsible for handling comment-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.PostController._notificationService">
+            <summary>
+            The service responsible for handling notification-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.PostController._friendshipService">
+            <summary>
+            The service responsible for handling friendship-related operations.
+            </summary>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.PostController.#ctor(project.BLL.Abstract.IPostService,project.BLL.Abstract.IUserService,project.BLL.Abstract.ICommentService,project.BLL.Abstract.INotificationService,project.BLL.Abstract.IFriendshipService,project.Web.Abstract.IMediaService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Initializes a new instance of the PostController class with the specified services.
+            </summary>
+            <param name="mediaService">The service for handling media-related operations.</param>
+            <param name="postService">The service for handling post-related operations.</param>
+            <param name="userService">The service for handling user-related operations.</param>
+            <param name="commentService">The service for handling comment-related operations.</param>
+            <param name="notificationService">The service for handling notification-related operations.</param>
+            <param name="friendshipService">The service for handling friendship-related operations.</param>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.PostController.GetAllPosts">
+            <summary>
+            Gets all posts for the news feed of the current user.
+            </summary>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.PostController.GetPostById(System.String)">
+            <summary>
+            Retrieves a post by id.
+            </summary>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.PostController.GetAllCommentsOfPost(System.String)">
+            <summary>
+            Retrieves all comments of a specific post by its post ID.
+            </summary>
+            <param name="postId">The ID of the post whose comments to retrieve.</param>
+            <returns>An action result containing the list of comments belonging to the post.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.PostController.AddComment(project.Web.Models.CommentInputModel)">
+            <summary>
+            Adds a new comment to a specific post by its post ID.
+            </summary>
+            <param name="model">The input model containing comment details.</param>
+            <returns>An action result containing the newly added comment and related notification.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.PostController.CreatePost(project.Web.Models.CreatePostViewModel)">
+            <summary>
+            Creates a new post and adds it to the database.
+            </summary>
+            <param name="model">The view model containing the post details.</param>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.PostController.GetAllPostsOfUser">
+            <summary>
+            Retrieves all posts of a specific user by token.
+            </summary>
+            <returns>An action result containing the list of posts belonging to the user.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.PostController.DeleteMyPost(System.String)">
+            <summary>
+            Delete a post of a specific user by their post ID.
+            </summary>
+            <param name="userId">The ID of the user whose posts to retrieve.</param>
+            <returns>An action result containing the list of posts belonging to the user.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.PostController.EditMyPost(project.Web.Models.CreatePostViewModel,System.String)">
+            <summary>
+            Edit a post of a specific user by their post ID.
+            </summary>
+            <param name="userId">The ID of the user whose posts to retrieve.</param>
+            <returns>An action result containing the list of posts belonging to the user.</returns>
+        </member>
+        <member name="T:project.Web.Controllers.ApiControllers.UserController">
+            <summary>
+            Controller for managing users.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.UserController._userService">
+            <summary>
+            The user service used for user-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.UserController._friendshipService">
+            <summary>
+            The friendship service used for friendship-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.UserController._friendRequestService">
+            <summary>
+            The friend request service used for friend request-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.UserController._mediaService">
+            <summary>
+            The media service used for media-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Controllers.ApiControllers.UserController._mapper">
+            <summary>
+            The mapper used for object mapping.
+            </summary>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.UserController.#ctor(project.BLL.Abstract.IUserService,project.BLL.Abstract.IFriendshipService,project.BLL.Abstract.IFriendRequestService,project.Web.Abstract.IMediaService,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Initializes a new instance of the UserController class.
+            </summary>
+            <param name="userService">The user service used for user-related operations.</param>
+            <param name="friendshipService">The friendship service used for friendship-related operations.</param>
+            <param name="friendRequestService">The friend request service used for friend request-related operations.</param>
+            <param name="mediaService">The media service used for media-related operations.</param>
+            <param name="mapper">The mapper used for object mapping.</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:project.Web.Controllers.ApiControllers.UserController.GetCurrentUser" -->
+        <member name="M:project.Web.Controllers.ApiControllers.UserController.GetAllUsersCount">
+            <summary>
+            Retrieves the count of all users.
+            </summary>
+            <returns>The count of all users.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.UserController.UpdateProfileImage(project.Web.Models.UpdateProfileViewModel)">
+            <summary>
+            Updates the current user's profile image with the provided media file.
+            </summary>
+            <param name="model">The model containing the media file and user ID.</param>
+            <returns>An action result indicating the success or failure of the update operation.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.UserController.GetUsersByText(System.String)">
+            <summary>
+            Retrieves a list of user profiles that match the specified text.
+            </summary>
+            <param name="text">The text to search for in the user profiles.</param>
+            <returns>A list of user profiles that match the specified text.</returns>
+        </member>
+        <member name="M:project.Web.Controllers.ApiControllers.UserController.GetFollowings">
+            <summary>
+            Retrieves a list of users that the specified user is following.
+            </summary>
+            <param name="userId">The ID of the user whose followings are to be retrieved.</param>
+            <returns>A list of users that the specified user is following.</returns>
+        </member>
+        <member name="T:project.Web.DTOs.UserDTO">
+            <summary>
+            Represents a Data Transfer Object (DTO) for user-related information.
+            </summary>
+        </member>
+        <member name="P:project.Web.DTOs.UserDTO.Id">
+            <summary>
+            Gets or sets the unique identifier of the user.
+            </summary>
+        </member>
+        <member name="P:project.Web.DTOs.UserDTO.UserName">
+            <summary>
+            Gets or sets the username of the user.
+            </summary>
+        </member>
+        <member name="P:project.Web.DTOs.UserDTO.Email">
+            <summary>
+            Gets or sets the email address of the user.
+            </summary>
+        </member>
+        <member name="P:project.Web.DTOs.UserDTO.ImageUrl">
+            <summary>
+            Gets or sets the URL of the user's profile image.
+            </summary>
+        </member>
+        <member name="P:project.Web.DTOs.UserDTO.CoverImage">
+            <summary>
+            Gets or sets the URL of the user's cover image.
+            </summary>
+        </member>
+        <member name="P:project.Web.DTOs.UserDTO.IsFriend">
+            <summary>
+            Gets or sets a value indicating whether the user is a friend of the current user.
+            </summary>
+        </member>
+        <member name="P:project.Web.DTOs.UserDTO.HasFriendRequestPending">
+            <summary>
+            Gets or sets a value indicating whether the user has a pending friend request from the current user.
+            </summary>
+        </member>
+        <member name="T:project.Web.Entities.Advertisement">
+            <summary>
+            Represents an Advertisement entity with its properties.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.Advertisement.AdvertisementUrl">
+            <summary>
+            Gets or sets the URL associated with the Advertisement.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.Advertisement.AdvertisementImageUrl">
+            <summary>
+            Gets or sets the URL of the image used for the Advertisement.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.Advertisement.LogoUrl">
+            <summary>
+            Gets or sets the URL of the logo used in the Advertisement.
+            </summary>
+        </member>
+        <member name="T:project.Web.Entities.CloudinarySettings">
+            <summary>
+            Represents the Cloudinary settings entity with its properties.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.CloudinarySettings.CloudName">
+            <summary>
+            Gets or sets the Cloudinary cloud name.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.CloudinarySettings.ApiKey">
+            <summary>
+            Gets or sets the Cloudinary API key.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.CloudinarySettings.ApiSecret">
+            <summary>
+            Gets or sets the Cloudinary API secret.
+            </summary>
+        </member>
+        <member name="T:project.Web.Entities.UserProfile">
+            <summary>
+            Represents the user profile information.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.OldUserName">
+            <summary>
+            Gets or sets the old username.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.UserName">
+            <summary>
+            Gets or sets the username.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.PhoneNumber">
+            <summary>
+            Gets or sets the phone number.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.Birthday">
+            <summary>
+            Gets or sets the birthday.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.Occupation">
+            <summary>
+            Gets or sets the occupation.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.Birthplace">
+            <summary>
+            Gets or sets the birthplace.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.Gender">
+            <summary>
+            Gets or sets the gender.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.RelationshipStatus">
+            <summary>
+            Gets or sets the relationship status.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.BloodGroup">
+            <summary>
+            Gets or sets the blood group.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.Website">
+            <summary>
+            Gets or sets the website.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.SocialLink">
+            <summary>
+            Gets or sets the social link.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.Languages">
+            <summary>
+            Gets or sets the languages.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.AboutMe">
+            <summary>
+            Gets or sets the about me description.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.EducationWork">
+            <summary>
+            Gets or sets the education and work details.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.UserProfile.Interests">
+            <summary>
+            Gets or sets the interests.
+            </summary>
+        </member>
+        <member name="T:project.Web.Entities.Video">
+            <summary>
+            Represents a video entity with its properties.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.Video.VideoUrl">
+            <summary>
+            Gets or sets the URL of the video.
+            </summary>
+        </member>
+        <member name="P:project.Web.Entities.Video.ImageUrl">
+            <summary>
+            Gets or sets the URL of the video's thumbnail or image.
+            </summary>
+        </member>
+        <member name="T:project.Web.Helpers.ConstantHelpers.Constants">
+            <summary>
+            A collection of constants in the application.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.AppSettingsFile">
+            <summary>
+            Represents the name of the app settings file ("appsettings.json").
+            This constant is used to retrieve application configuration settings.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.ConnectionString">
+            <summary>
+            Represents the connection string used to connect to the database.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.ConnectionStringName">
+            <summary>
+            Represents the name of the connection string in the configuration.
+            </summary>
+        </member>
+        <member name="M:project.Web.Helpers.ConstantHelpers.Constants.#cctor">
+            <summary>
+            Static constructor for the Constants class that initializes the ConnectionString constant.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.MigrationsAssembly">
+            <summary>
+            Represents the name of the assembly containing database migrations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.CookieExpireTimeSpan">
+            <summary>
+            Represents the expiration time span for a cookie in days.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.DefaultProfileImagePath">
+            <summary>
+            Represents the default file path for user profile images.
+            </summary>  
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.NoData">
+            <summary>
+            Represents the "No Data" string.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.TakeUserCount">
+            <summary>
+            Represents the number of users to take in user-related operations.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.StringEmpty">
+            <summary>
+            Represents an empty string.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.CloudinarySettings">
+            <summary>
+            Represents the settings key for Cloudinary configuration.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.ImageFileType">
+            <summary>
+            Represents the file type for images.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.VideoFileType">
+            <summary>
+            Represents the file type for videos.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.NoContentImageUrl">
+            <summary>
+            Represents the URL for the default image when no content is found.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.StatusCountInNewsFeed">
+            <summary>
+            Represents the number of status items to show in the news feed.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.VideoCountInNewsFeed">
+            <summary>
+            Represents the number of video items to show in the news feed.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.AdvertisementCountInNewsFeed">
+            <summary>   
+            Represents the number of advertisement items to show in the news feed.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.BirthdayRange">
+            <summary>
+            Represents the range in days for checking birthdays.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Constants.RandomFollowerCount">
+            <summary>
+            Represents the number of random followers to show.
+            </summary>
+        </member>
+        <member name="T:project.Web.Helpers.ConstantHelpers.Errors">
+            <summary>
+            A collection of error constants for common error scenarios in the application.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.UsernameError">
+            <summary>
+            Represents the key for the username-related error.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.UsernameIsTakenError">
+            <summary>
+            Represents the error message for when a username already exists.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.PasswordError">
+            <summary>
+            Represents the key for the password-related error.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.LoginError">
+            <summary>
+            Represents the key for the login-related error.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.InvalidLoginError">
+            <summary>
+            Represents the error message for an invalid login attempt.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.RoleError">
+            <summary>
+            Represents the key for the role-related error.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.CannotAddRoleError">
+            <summary>
+            Represents the error message for when a role cannot be added.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.RegisterError">
+            <summary>
+            Represents the error message for general registration error.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.FriendRequestNotFound">
+            <summary>
+            Represents the error message for when a friend request is not found.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.FriendRequestAlreadySent">
+            <summary>
+            Represents the error message for when a friend request has already been sent.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.AnErrorOccured">
+            <summary>
+            Represents the error message for a generic error.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.FileTypeNotSupportedError">
+            <summary>
+            Represents the error message for when the file type is not supported.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.ImageUploadError">
+            <summary>
+            Represents the error message for when an image upload error occurs.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.InvalidRequestData">
+            <summary>
+            Represents the error message for invalid request data.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Errors.UserNotFound">
+            <summary>
+            Represents the error message for when a user is not found.
+            </summary>
+        </member>
+        <member name="T:project.Web.Helpers.ConstantHelpers.FileConstants">
+            <summary>
+            Contains constant values for file-related paths and names used in the application.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.FileConstants.FilesFolderPath">
+            <summary>
+            Represents the folder path for files.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.FileConstants.StatusImagesFile">
+            <summary>
+            Represents the file name for the statuses text file.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.FileConstants.CoversFile">
+            <summary>
+            Represents the file name for the covers text file.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.FileConstants.WatchVideoUrlsFile">
+            <summary>
+            Represents the file name for the watch video URLs JSON file.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.FileConstants.AdvertisementsFile">
+            <summary>
+            Represents the file name for the advertisements JSON file.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.FileConstants.SpecialUsersFile">
+            <summary>
+            Represents the file name for the special users text file.
+            </summary>
+        </member>
+        <member name="T:project.Web.Helpers.ConstantHelpers.NotificationType">
+            <summary>
+            Contains static methods to generate notification messages for various event types.
+            </summary>
+        </member>
+        <member name="M:project.Web.Helpers.ConstantHelpers.NotificationType.GetNewFriendRequestMessage(System.String)">
+            <summary>
+            Generates a notification message for a new friend request.
+            </summary>
+            <param name="username">The username of the sender.</param>
+            <returns>The notification message.</returns>
+        </member>
+        <member name="M:project.Web.Helpers.ConstantHelpers.NotificationType.GetFriendRequestAcceptedMessage(System.String)">
+            <summary>
+            Generates a notification message for a friend request being accepted.
+            </summary>
+            <param name="username">The username of the sender.</param>
+            <returns>The notification message.</returns>
+        </member>
+        <member name="M:project.Web.Helpers.ConstantHelpers.NotificationType.GetFriendRequestDeclinedMessage(System.String)">
+            <summary>
+            Generates a notification message for a friend request being declined.
+            </summary>
+            <param name="username">The username of the sender.</param>
+            <returns>The notification message.</returns>
+        </member>
+        <member name="M:project.Web.Helpers.ConstantHelpers.NotificationType.GetLikedYourPostMessage(System.String)">
+            <summary>
+            Generates a notification message for someone liking your post.
+            </summary>
+            <param name="username">The username of the sender.</param>
+            <returns>The notification message.</returns>
+        </member>
+        <member name="M:project.Web.Helpers.ConstantHelpers.NotificationType.GetCommentedOnYourPostMessage(System.String)">
+            <summary>
+            Generates a notification message for someone commenting on your post.
+            </summary>
+            <param name="username">The username of the sender.</param>
+            <returns>The notification message.</returns>
+        </member>
+        <member name="M:project.Web.Helpers.ConstantHelpers.NotificationType.GetSentYouMessageMessage(System.String)">
+            <summary>
+            Generates a notification message for someone sending you a message.
+            </summary>
+            <param name="username">The username of the sender.</param>
+            <returns>The notification message.</returns>
+        </member>
+        <member name="M:project.Web.Helpers.ConstantHelpers.NotificationType.GetSharedPostMessage(System.String)">
+            <summary>
+            Generates a notification message for someone sharing a post.
+            </summary>
+            <param name="username">The username of the sender.</param>
+            <returns>The notification message.</returns>
+        </member>
+        <member name="T:project.Web.Helpers.ConstantHelpers.Role">
+            <summary>
+            A collection of role constants representing different user roles in the application.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Role.User">
+            <summary>
+            Represents the role for a regular user.
+            </summary>
+        </member>
+        <member name="T:project.Web.Helpers.ConstantHelpers.Routes">
+            <summary>
+            Contains constant values for various URLs used in the application.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.Home">
+            <summary>
+            Represents the home page route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.Account">
+            <summary>
+            Represents the account page route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.ForgotPassword">
+            <summary>
+            Represents the forgot password page route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.HelpAndSupport">
+            <summary>
+            Represents the help and support page route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.LiveChat">
+            <summary>
+            Represents the live chat page route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.MyProfile">
+            <summary>
+            Represents the my profile page route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.UserProfile">
+            <summary>
+            Represents the user profile page route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.FriendRequests">
+            <summary>
+            Represents the friend requests page route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.Register">
+            <summary>
+            Represents the register page route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.Users">
+            <summary>
+            Represents the users page route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.Login">
+            <summary>
+            Represents the login page route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.Index">
+            <summary>
+            Represents the index page route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.Error">
+            <summary>
+            Represents the error page route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.UserExistsRoute">
+            <summary>
+            Represents the route for checking if a username exists.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.Authentication">
+            <summary>
+            Represents the authentication API controller route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.ProfileController">
+            <summary>
+            Represents the profile API controller route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.LikeController">
+            <summary>
+            Represents the like API controller route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.UpdateProfile">
+            <summary>
+            Represents the UpdateProfile API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.UserController">
+            <summary>
+            Represents the user API controller route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetUsers">
+            <summary>
+            Represents the GetUsers API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetUsersByText">
+            <summary>
+            Represents the GetUsersByText API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetUser">
+            <summary>
+            Represents the GetUser API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetAllUsersCount">
+            <summary>
+            Represents the GetAllUsersCount API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.FriendRequest">
+            <summary>
+            Represents the FriendRequest API controller route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.AddFriendRequest">
+            <summary>
+            Represents the AddFriendRequest API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.CancelFriendRequest">
+            <summary>
+            Represents the CancelFriendRequest API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetSentFriendRequests">
+            <summary>
+            Represents the GetSentFriendRequests API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetReceivedFriendRequests">
+            <summary>
+            Represents the GetReceivedFriendRequests API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.AcceptRequest">
+            <summary>
+            Represents the AcceptRequest API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.DeclineRequest">
+            <summary>
+            Represents the DeclineRequest API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetFollowers">
+            <summary>
+            Represents the GetFollowers API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetFollowersCount">
+            <summary>
+            Represents the GetFollowersCount API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetFollowings">
+            <summary>
+            Represents the GetFollowings API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetFollowingsCount">
+            <summary>
+            Represents the GetFollowingsCount API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.RemoveFriend">
+            <summary>
+            Represents the RemoveFriend API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.RemoveFollower">
+            <summary>
+            Represents the RemoveFollower API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetCurrentUser">
+            <summary>
+            Represents the GetCurrentUser API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.CreatePost">
+            <summary>
+            Represents the CreatePost API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetAllPosts">
+            <summary>
+            Represents the GetAllPosts API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetAllPostsOfUser">
+            <summary>
+            Represents the GetAllPostsOfUser API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.Static">
+            <summary>
+            Represents the Static API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetRandomStatusImagePaths">
+            <summary>
+            Represents the GetRandomStatusImagePaths API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetWatchVideos">
+            <summary>
+            Represents the GetWatchVideos API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.UpdateProfileImage">
+            <summary>
+            Represents the UpdateProfileImage API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetSpecialUsers">
+            <summary>
+            Represents the GetSpecialUsers API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetUsersWithTodayBirthday">
+            <summary>
+            Represents the GetUsersWithTodayBirthday API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetUsersWithRecentBirthday">
+            <summary>
+            Represents the GetUsersWithRecentBirthday API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetUsersWithComingBirthday">
+            <summary>
+            Represents the GetUsersWithComingBirthday API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.PostAPI">
+            <summary>
+            Represents the Post API controller route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetPostLikeCount">
+            <summary>
+            Represents the GetPostLikeCount API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.LikePost">
+            <summary>
+            Represents the LikePost API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.UnlikePost">
+            <summary>
+            Represents the UnlikePost API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetPostIdsLiked">
+            <summary>
+            Represents the GetPostIdsLiked API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetRandomFollowers">
+            <summary>
+            Represents the GetRandomFollowers API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetAllPostsLikeCount">
+            <summary>
+            Represents the GetAllPostsLikeCount API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetFollowersInRange">
+            <summary>
+            Represents the GetFollowersInRange API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetFollowingsInRange">
+            <summary>
+            Represents the GetFollowingsInRange API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.NotificationAPI">
+            <summary>
+            Represents the NotificationAPI API controller route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetNotificationsOfUser">
+            <summary>
+            Represents the GetNotificationsOfUser API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.UserLikedPost">
+            <summary>
+            Represents the UserLikedPost API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetCommentsOfPost">
+            <summary>
+            Represents the GetCommentsOfPost API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetCountOfCommentsOfPost">
+            <summary>
+            Represents the GetCountOfCommentsOfPost API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.AddComment">
+            <summary>
+            Represents the AddComment API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetPendingReceivedFriendRequestsCount">
+            <summary>
+            Represents the GetPendingReceivedFriendRequestsCount API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.SetNotificationRead">
+            <summary>
+            Represents the SetNotificationRead API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetUnreadNotificationCount">
+            <summary>
+            Represents the GetUnreadNotificationCount API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.DeleteProfile">
+            <summary>
+            Represents the DeleteProfile API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.IsUsernameAndPasswordValid">
+            <summary>
+            Represents the IsUsernameAndPasswordValid API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.Chat">
+            <summary>
+            Represents the Chat API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.ChatAPI">
+            <summary>
+            Represents the ChatAPI API controller route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.AddMessage">
+            <summary>
+            Represents the AddMessage API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetChats">
+            <summary>
+            Represents the GetChats API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.Post">
+            <summary>
+            Represents the Post API route.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Routes.GetLastMessage">
+            <summary>
+            Represents a constant string with the value "GetLastMessage".
+            This constant is used to identify the action of retrieving the last message in the chat.
+            </summary>
+        </member>
+        <member name="T:project.Web.Helpers.ConstantHelpers.SignalRConstants">
+            <summary>
+            Contains constant values for SignalR event names used in the application.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.SignalRConstants.ReceiveMessage">
+            <summary>
+            Represents the SignalR event name for receiving a message.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.SignalRConstants.ReceiveNotification">
+            <summary>
+            Represents the SignalR event name for receiving a notification.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.SignalRConstants.ReceiveFriendRequest">
+            <summary>
+            Represents the SignalR event name for receiving a friend request.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.SignalRConstants.ReceiveFriendRequestResponse">
+            <summary>
+            Represents the SignalR event name for receiving a friend request response.
+            </summary>
+        </member>
+        <member name="T:project.Web.Helpers.ConstantHelpers.Status">
+            <summary>
+            Contains constant values for various status types used in the application.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Status.Accepted">
+            <summary>
+            Represents the "Accepted" status.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Status.Declined">
+            <summary>
+            Represents the "Declined" status.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.Status.Pending">
+            <summary>
+            Represents the "Pending" status.
+            </summary>
+        </member>
+        <member name="T:project.Web.Helpers.ConstantHelpers.TokenConstants">
+            <summary>
+            Contains constant values related to tokens used in the application.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.TokenConstants.TokenSection">
+            <summary>
+            Represents the configuration section key for the token in the app settings.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.TokenConstants.TokenExpiry">
+            <summary>
+            Represents the token expiry duration in days.
+            </summary>
+        </member>
+        <member name="F:project.Web.Helpers.ConstantHelpers.TokenConstants.MyToken">
+            <summary>
+            Represents the key used to store the token in the session.
+            </summary>
+        </member>
+        <member name="T:project.Web.Helpers.Mappers.AutoMapperProfiles">
+            <summary>
+            Class responsible for defining AutoMapper profiles.
+            </summary>
+        </member>
+        <member name="M:project.Web.Helpers.Mappers.AutoMapperProfiles.#ctor">
+            <summary>
+            Initializes a new instance of the AutoMapperProfiles class.
+            </summary>
+        </member>
+        <member name="T:project.Web.Helpers.Utilities.FileHelper`1">
+            <summary>
+            Helper class for working with files.
+            </summary>
+        </member>
+        <member name="M:project.Web.Helpers.Utilities.FileHelper`1.ReadTextFile(System.String)">
+            <summary>
+            Retrieves a list of images from a text file.
+            </summary>
+            <param name="path">The path to the text file.</param>
+            <returns>A list of images.</returns>
+        </member>
+        <member name="M:project.Web.Helpers.Utilities.FileHelper`1.Serialize(System.Collections.Generic.List{`0},System.String)">
+            <summary>
+            Serializes a list of objects to JSON format and writes it to a file with the specified filename.
+            </summary>
+            <param name="values">The list of objects to be serialized.</param>
+            <param name="filename">The filename for the output JSON file.</param>
+        </member>
+        <member name="M:project.Web.Helpers.Utilities.FileHelper`1.Deserialize(System.String)">
+            <summary>
+            Deserializes JSON data from a file with the specified filename and converts it back to a list of objects.
+            </summary>
+            <param name="filename">The filename of the JSON file to be deserialized.</param>
+            <returns>The deserialized list of objects.</returns>
+        </member>
+        <member name="T:project.Web.Helpers.Utilities.UserHelper">
+            <summary>
+            Helper class for retrieving the current authenticated user.
+            </summary>
+        </member>
+        <member name="M:project.Web.Helpers.Utilities.UserHelper.GetCurrentUserAsync(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Retrieves the current authenticated user from the HttpContext.
+            </summary>
+            <param name="httpContext">The HttpContext representing the current HTTP request.</param>
+            <returns>The current authenticated user, or null if not authenticated.</returns>
+        </member>
+        <member name="T:project.Web.Hubs.UserHub">
+            <summary>
+            SignalR hub for handling real-time communication with connected users.
+            </summary>
+        </member>
+        <member name="M:project.Web.Hubs.UserHub.SendMessageToUser(project.DAL.Entities.Message)">
+            <summary>
+            Sends a message to a specific user.
+            </summary>
+            <param name="message">The message to be sent.</param>
+        </member>
+        <member name="M:project.Web.Hubs.UserHub.SendNotification(project.DAL.Entities.Notification,project.Web.Models.FriendRequestViewModel)">
+            <summary>
+            Sends a notification and friend request response to a specific user.
+            </summary>
+            <param name="notification">The notification to be sent.</param>
+            <param name="friendRequestViewModel">The view model containing friend request data.</param>
+        </member>
+        <member name="M:project.Web.Hubs.UserHub.SendCommentNotification(project.DAL.Entities.Notification)">
+            <summary>
+            Sends a comment notification to a specific user.
+            </summary>
+            <param name="notification">The notification to be sent.</param>
+        </member>
+        <member name="M:project.Web.Hubs.UserHub.SendFriendRequest(project.DAL.Entities.FriendRequest)">
+            <summary>
+            Sends a friend request to a specific user.
+            </summary>
+            <param name="friendRequest">The friend request to be sent.</param>
+        </member>
+        <member name="M:project.Web.Hubs.UserHub.SendFriendRequestNotification(project.DAL.Entities.Notification)">
+            <summary>
+            Sends a friend request notification to a specific user.
+            </summary>
+            <param name="notification">The notification to be sent.</param>
+        </member>
+        <member name="T:project.Web.Models.ChatViewModel">
+            <summary>
+            Represents a view model for the chat functionality, containing information about the users involved in the chat and the chat itself.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.ChatViewModel.UserToChat">
+            <summary>
+            Gets or sets the user to chat with.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.ChatViewModel.CurrentUser">
+            <summary>
+            Gets or sets the current authenticated user.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.ChatViewModel.Chat">
+            <summary>
+            Gets or sets the chat instance for the current authenticated user.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.ChatViewModel.ChatForOtherUser">
+            <summary>
+            Gets or sets the chat instance for the other user involved in the chat.
+            </summary>
+        </member>
+        <member name="T:project.Web.Models.CommentInputModel">
+            <summary>
+            Represents a model for input data when adding a comment to a post.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.CommentInputModel.PostId">
+            <summary>
+            Gets or sets the ID of the post the comment belongs to.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.CommentInputModel.Text">
+            <summary>
+            Gets or sets the text content of the comment.
+            </summary>
+        </member>
+        <member name="T:project.Web.Models.CommentNotificationViewModel">
+            <summary>
+            Represents a view model for displaying a comment and its associated notification.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.CommentNotificationViewModel.Comment">
+            <summary>
+            Gets or sets the comment to be displayed.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.CommentNotificationViewModel.Notification">
+            <summary>
+            Gets or sets the notification associated with the comment.
+            </summary>
+        </member>
+        <member name="T:project.Web.Models.CreatePostViewModel">
+            <summary>
+            Represents a view model for creating a new post.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.CreatePostViewModel.Description">
+            <summary>
+            Gets or sets the description of the post.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.CreatePostViewModel.MediaFile">
+            <summary>
+            Gets or sets the media file associated with the post.
+            </summary>
+        </member>
+        <member name="T:project.Web.Models.FriendRequestNotificiationViewModel">
+            <summary>
+            Represents a view model for handling friend request notifications.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.FriendRequestNotificiationViewModel.FriendRequest">
+            <summary>
+            Gets or sets the friend request associated with the notification.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.FriendRequestNotificiationViewModel.Notification">
+            <summary>
+            Gets or sets the notification related to the friend request.
+            </summary>
+        </member>
+        <member name="T:project.Web.Models.FriendRequestViewModel">
+            <summary>
+            Represents a view model for handling friend requests.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.FriendRequestViewModel.Id">
+            <summary>
+            Gets or sets the unique identifier of the friend request.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.FriendRequestViewModel.HasFriendRequestPending">
+            <summary>
+            Gets or sets a value indicating whether the user has a pending friend request.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.FriendRequestViewModel.IsFriend">
+            <summary>
+            Gets or sets a value indicating whether the user is already a friend.
+            </summary>
+        </member>
+        <member name="T:project.Web.Models.IndexViewModel">
+            <summary>
+            Represents a view model for the index page.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.IndexViewModel.CreatePostViewModel">
+            <summary>
+            Gets or sets the view model for creating a post.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.IndexViewModel.WatchVideos">
+            <summary>
+            Gets or sets a list of videos to watch.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.IndexViewModel.Advertisements">
+            <summary>
+            Gets or sets a list of advertisements.
+            </summary>
+        </member>
+        <member name="T:project.Web.Models.LoginViewModel">
+            <summary>
+            Represents the model for the login form.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.LoginViewModel.Username">
+            <summary>
+            Gets or sets the username for the login.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.LoginViewModel.Password">
+            <summary>
+            Gets or sets the password for the login.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.LoginViewModel.RememberMe">
+            <summary>
+            Gets or sets a value indicating whether to remember the user's login session.
+            </summary>
+        </member>
+        <member name="T:project.Web.Models.MessageNotificationViewModel">
+            <summary>
+            Represents a view model for message notifications.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.MessageNotificationViewModel.Message">
+            <summary>
+            Gets or sets the message associated with the notification.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.MessageNotificationViewModel.Notification">
+            <summary>
+            Gets or sets the notification related to the message.
+            </summary>
+        </member>
+        <member name="T:project.Web.Models.MessageViewModel">
+            <summary>
+            Represents a view model for messages.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.MessageViewModel.SenderUserId">
+            <summary>
+            Gets or sets the ID of the sender user.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.MessageViewModel.ReceiverUserId">
+            <summary>
+            Gets or sets the ID of the receiver user.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.MessageViewModel.Text">
+            <summary>
+            Gets or sets the text content of the message.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.MessageViewModel.ChatId">
+            <summary>
+            Gets or sets the ID of the chat to which the message belongs.
+            </summary>
+        </member>
+        <member name="T:project.Web.Models.RegisterViewModel">
+            <summary>
+            Represents the model for the registration form.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.RegisterViewModel.Username">
+            <summary>
+            Gets or sets the username for the registration.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.RegisterViewModel.Email">
+            <summary>
+            Gets or sets the email address for the registration.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.RegisterViewModel.Password">
+            <summary>
+            Gets or sets the password for the registration.
+            </summary>
+        </member>
+        <member name="T:project.Web.Models.SendMessageViewModel">
+            <summary>
+            Represents a view model for sending messages.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.SendMessageViewModel.Message">
+            <summary>
+            Gets or sets the message to be sent.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.SendMessageViewModel.FirstMessageSent">
+            <summary>
+            Gets or sets a value indicating whether this is the first message sent in the conversation.
+            </summary>
+        </member>
+        <member name="T:project.Web.Models.UpdateProfileViewModel">
+            <summary>
+            Represents a view model for updating user profile information.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.UpdateProfileViewModel.MediaFile">
+            <summary>
+            Gets or sets the media file for the user's profile picture.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.UserAuthenticationViewModel.Username">
+            <summary>
+            Gets or sets the username for the login.
+            </summary>
+        </member>
+        <member name="P:project.Web.Models.UserAuthenticationViewModel.Password">
+            <summary>
+            Gets or sets the password for the login.
+            </summary>
+        </member>
+    </members>
+</doc>

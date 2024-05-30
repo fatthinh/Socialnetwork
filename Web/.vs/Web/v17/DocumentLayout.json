@@ -1,69 +1,73 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\",
+  "WorkspaceRootPath": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.web\\controllers\\apicontrollers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\controllers\\apicontrollers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.web\\controllers\\apicontrollers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\controllers\\apicontrollers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.bll\\concrete\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|solutionrelative:project.bll\\concrete\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.bll\\abstract\\ipostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|solutionrelative:project.bll\\abstract\\ipostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.web\\controllers\\apicontrollers\\bookmarkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\controllers\\apicontrollers\\bookmarkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.web\\controllers\\apicontrollers\\likecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\controllers\\apicontrollers\\likecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.bll\\abstract\\ibookmarkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|solutionrelative:project.bll\\abstract\\ibookmarkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.dal\\concrete\\efentityframework\\eflikedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|solutionrelative:project.dal\\concrete\\efentityframework\\eflikedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.bll\\concrete\\bookmarkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.web\\controllers\\apicontrollers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\controllers\\apicontrollers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.web\\controllers\\apicontrollers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\controllers\\apicontrollers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.bll\\concrete\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|solutionrelative:project.bll\\concrete\\postservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.bll\\abstract\\ipostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|solutionrelative:project.bll\\abstract\\ipostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.web\\controllers\\apicontrollers\\bookmarkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\controllers\\apicontrollers\\bookmarkcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.web\\controllers\\apicontrollers\\likecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7C964B38-0F40-4A57-8FEA-9D23B4FA5953}|project.Web\\project.Web.csproj|solutionrelative:project.web\\controllers\\apicontrollers\\likecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.bll\\abstract\\ibookmarkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|solutionrelative:project.bll\\abstract\\ibookmarkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.dal\\concrete\\efentityframework\\eflikedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|solutionrelative:project.dal\\concrete\\efentityframework\\eflikedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.bll\\concrete\\bookmarkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|solutionrelative:project.bll\\concrete\\bookmarkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.bll\\abstract\\ilikeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.bll\\abstract\\ilikeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|solutionrelative:project.bll\\abstract\\ilikeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.dal\\abstract\\ichatdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.dal\\abstract\\ichatdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|solutionrelative:project.dal\\abstract\\ichatdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.dal\\abstract\\ibookmarkdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.dal\\abstract\\ibookmarkdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|solutionrelative:project.dal\\abstract\\ibookmarkdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.dal\\concrete\\efentityframework\\efbookmarkdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.dal\\concrete\\efentityframework\\efbookmarkdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|solutionrelative:project.dal\\concrete\\efentityframework\\efbookmarkdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.dal\\abstract\\ilikedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.dal\\abstract\\ilikedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{45D7CD76-98E3-4664-BD9F-FCEBFAE95F74}|project.DAL\\project.DAL.csproj|solutionrelative:project.dal\\abstract\\ilikedal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|d:\\daihoc\\ltcsdl\\socialnetwork\\web\\project.bll\\concrete\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|d:\\ou\\dataproramming\\socialnetwork\\socialnetwork\\web\\project.bll\\concrete\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3A685588-388F-40B9-9052-19480BCE7C65}|project.BLL\\project.BLL.csproj|solutionrelative:project.bll\\concrete\\likeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -79,202 +83,206 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\appsettings.json",
+              "RelativeDocumentMoniker": "project.Web\\appsettings.json",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\appsettings.json",
+              "RelativeToolTip": "project.Web\\appsettings.json",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-30T01:37:14.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AdminController.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\AdminController.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\AdminController.cs",
               "RelativeDocumentMoniker": "project.Web\\Controllers\\ApiControllers\\AdminController.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\AdminController.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\AdminController.cs",
               "RelativeToolTip": "project.Web\\Controllers\\ApiControllers\\AdminController.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAQwC8AAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-29T21:08:33.284Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "IPostService.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\Abstract\\IPostService.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\Abstract\\IPostService.cs",
               "RelativeDocumentMoniker": "project.BLL\\Abstract\\IPostService.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\Abstract\\IPostService.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\Abstract\\IPostService.cs",
               "RelativeToolTip": "project.BLL\\Abstract\\IPostService.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAAwGAAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-29T19:21:24.242Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "PostService.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\Concrete\\PostService.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\Concrete\\PostService.cs",
               "RelativeDocumentMoniker": "project.BLL\\Concrete\\PostService.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\Concrete\\PostService.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\Concrete\\PostService.cs",
               "RelativeToolTip": "project.BLL\\Concrete\\PostService.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAkwFMAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-29T14:01:26.923Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PostController.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\PostController.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\PostController.cs",
               "RelativeDocumentMoniker": "project.Web\\Controllers\\ApiControllers\\PostController.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\PostController.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\PostController.cs",
               "RelativeToolTip": "project.Web\\Controllers\\ApiControllers\\PostController.cs",
-              "ViewState": "AQIAAFoAAAAAAAAAAAAqwF8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-29T10:29:42.862Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "LikeController.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\LikeController.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\LikeController.cs",
               "RelativeDocumentMoniker": "project.Web\\Controllers\\ApiControllers\\LikeController.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\LikeController.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\LikeController.cs",
               "RelativeToolTip": "project.Web\\Controllers\\ApiControllers\\LikeController.cs",
-              "ViewState": "AQIAAIcAAAAAAAAAAAAQwLYAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-29T02:19:07.84Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Program.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\Program.cs",
               "RelativeDocumentMoniker": "project.Web\\Program.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Program.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\Program.cs",
               "RelativeToolTip": "project.Web\\Program.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAADwvxwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T02:15:59.698Z"
+              "WhenOpened": "2024-05-29T02:15:59.698Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "BookmarkController.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\BookmarkController.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\BookmarkController.cs",
               "RelativeDocumentMoniker": "project.Web\\Controllers\\ApiControllers\\BookmarkController.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\BookmarkController.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.Web\\Controllers\\ApiControllers\\BookmarkController.cs",
               "RelativeToolTip": "project.Web\\Controllers\\ApiControllers\\BookmarkController.cs",
-              "ViewState": "AQIAAIAAAAAAAAAAAAAUwJYAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-29T02:14:56.278Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "ILikeService.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\Abstract\\ILikeService.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\Abstract\\ILikeService.cs",
               "RelativeDocumentMoniker": "project.BLL\\Abstract\\ILikeService.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\Abstract\\ILikeService.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\Abstract\\ILikeService.cs",
               "RelativeToolTip": "project.BLL\\Abstract\\ILikeService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T02:14:33.241Z"
+              "WhenOpened": "2024-05-29T02:14:33.241Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "IBookmarkService.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\Abstract\\IBookmarkService.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\Abstract\\IBookmarkService.cs",
               "RelativeDocumentMoniker": "project.BLL\\Abstract\\IBookmarkService.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\Abstract\\IBookmarkService.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\Abstract\\IBookmarkService.cs",
               "RelativeToolTip": "project.BLL\\Abstract\\IBookmarkService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-29T02:14:29.275Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "IChatDal.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\Abstract\\IChatDal.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\Abstract\\IChatDal.cs",
               "RelativeDocumentMoniker": "project.DAL\\Abstract\\IChatDal.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\Abstract\\IChatDal.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\Abstract\\IChatDal.cs",
               "RelativeToolTip": "project.DAL\\Abstract\\IChatDal.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T02:14:20.963Z"
+              "WhenOpened": "2024-05-29T02:14:20.963Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "EFLikeDal.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\Concrete\\EFEntityFramework\\EFLikeDal.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\Concrete\\EFEntityFramework\\EFLikeDal.cs",
               "RelativeDocumentMoniker": "project.DAL\\Concrete\\EFEntityFramework\\EFLikeDal.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\Concrete\\EFEntityFramework\\EFLikeDal.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\Concrete\\EFEntityFramework\\EFLikeDal.cs",
               "RelativeToolTip": "project.DAL\\Concrete\\EFEntityFramework\\EFLikeDal.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-29T02:13:54.255Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "EFBookmarkDal.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\Concrete\\EFEntityFramework\\EFBookmarkDal.cs",
-              "RelativeDocumentMoniker": "project.DAL\\Concrete\\EFEntityFramework\\EFBookmarkDal.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\Concrete\\EFEntityFramework\\EFBookmarkDal.cs",
-              "RelativeToolTip": "project.DAL\\Concrete\\EFEntityFramework\\EFBookmarkDal.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T02:13:50.182Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "ILikeDal.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\Abstract\\ILikeDal.cs",
-              "RelativeDocumentMoniker": "project.DAL\\Abstract\\ILikeDal.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\Abstract\\ILikeDal.cs",
-              "RelativeToolTip": "project.DAL\\Abstract\\ILikeDal.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "EFBookmarkDal.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\Concrete\\EFEntityFramework\\EFBookmarkDal.cs",
+              "RelativeDocumentMoniker": "project.DAL\\Concrete\\EFEntityFramework\\EFBookmarkDal.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\Concrete\\EFEntityFramework\\EFBookmarkDal.cs",
+              "RelativeToolTip": "project.DAL\\Concrete\\EFEntityFramework\\EFBookmarkDal.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T02:13:34.416Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IBookmarkDal.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\Abstract\\IBookmarkDal.cs",
-              "RelativeDocumentMoniker": "project.DAL\\Abstract\\IBookmarkDal.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.DAL\\Abstract\\IBookmarkDal.cs",
-              "RelativeToolTip": "project.DAL\\Abstract\\IBookmarkDal.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T02:13:28.1Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BookmarkService.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\Concrete\\BookmarkService.cs",
-              "RelativeDocumentMoniker": "project.BLL\\Concrete\\BookmarkService.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\Concrete\\BookmarkService.cs",
-              "RelativeToolTip": "project.BLL\\Concrete\\BookmarkService.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAcwA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T02:12:03.291Z"
+              "WhenOpened": "2024-05-29T02:13:50.182Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "LikeService.cs",
-              "DocumentMoniker": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\Concrete\\LikeService.cs",
-              "RelativeDocumentMoniker": "project.BLL\\Concrete\\LikeService.cs",
-              "ToolTip": "D:\\DaiHoc\\ltcsdl\\Socialnetwork\\Web\\project.BLL\\Concrete\\LikeService.cs",
-              "RelativeToolTip": "project.BLL\\Concrete\\LikeService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Title": "ILikeDal.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\Abstract\\ILikeDal.cs",
+              "RelativeDocumentMoniker": "project.DAL\\Abstract\\ILikeDal.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\Abstract\\ILikeDal.cs",
+              "RelativeToolTip": "project.DAL\\Abstract\\ILikeDal.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-29T02:12:04.63Z"
+              "WhenOpened": "2024-05-29T02:13:34.416Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IBookmarkDal.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\Abstract\\IBookmarkDal.cs",
+              "RelativeDocumentMoniker": "project.DAL\\Abstract\\IBookmarkDal.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.DAL\\Abstract\\IBookmarkDal.cs",
+              "RelativeToolTip": "project.DAL\\Abstract\\IBookmarkDal.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T02:13:28.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BookmarkService.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\Concrete\\BookmarkService.cs",
+              "RelativeDocumentMoniker": "project.BLL\\Concrete\\BookmarkService.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\Concrete\\BookmarkService.cs",
+              "RelativeToolTip": "project.BLL\\Concrete\\BookmarkService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T02:12:03.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LikeService.cs",
+              "DocumentMoniker": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\Concrete\\LikeService.cs",
+              "RelativeDocumentMoniker": "project.BLL\\Concrete\\LikeService.cs",
+              "ToolTip": "D:\\OU\\DataProramming\\Socialnetwork\\Socialnetwork\\Web\\project.BLL\\Concrete\\LikeService.cs",
+              "RelativeToolTip": "project.BLL\\Concrete\\LikeService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-29T02:12:04.63Z",
+              "EditorCaption": ""
             }
           ]
         }
